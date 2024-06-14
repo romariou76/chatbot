@@ -1,0 +1,83 @@
+.carousel-control-prev{
+  margin-left: -10rem;
+}
+
+.carousel-control-next{
+  margin-right: -10rem;
+}
+
+.carousel-control-next, .carousel-control-prev{
+  color: black !important;
+}
+
+.carousel-control-prev .carousel-control-next-icon{
+  color: black !important;
+  background-color: blue;
+}
+
+.indicador-tutorial{
+  justify-content: center;
+  right: 0;
+  left: 0;
+  margin-top: -1rem;
+  position: absolute;
+}
+
+.indicador-tutorial span{
+  width: 70px;
+  height: 70px;
+}
+
+.container-item-tutorial{
+  width: 35rem;
+}
+
+@media (max-width: 999px){
+  .container-item-tutorial{
+    width: 25rem;
+  }
+  .atras{
+    margin-left: -5rem;
+  }
+  .siguiente{
+    margin-right: -5rem;
+  }
+}
+
+@media (max-width: 850px){
+  .container-item-tutorial{
+    width: 25rem;
+  }
+  .atras{
+    margin-left: -2rem;
+  }
+  .siguiente{
+    margin-right: -2rem;
+  }
+}
+
+@media (max-width: 600px){
+  .container-item-tutorial{
+    width: 23rem;
+  }
+  .atras{
+    margin-left: -1rem;
+  }
+  .siguiente{
+    margin-right: -1rem;
+  }
+}
+
+@media (max-width: 500px){
+  .container-item-tutorial{
+    width: 25rem;
+  }
+  .atras{
+  }
+  .siguiente{
+  }
+}
+
+.bg-semilight{
+  background-color: rgb(24, 80, 136);
+}

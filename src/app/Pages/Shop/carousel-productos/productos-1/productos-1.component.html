@@ -1,0 +1,82 @@
+<div class="py-4" id="notebooks">
+<!-- <div class="d-flex align-items-center  my-3 my-lg-5">
+  <hr class="custom-line flex-grow-1">
+  <h3 class="mx-3 text-uppercase text-center">¡Ofertas imperdibles en Laptops! </h3>
+  <hr class="custom-line flex-grow-1">
+</div> -->
+
+<div class="container text-center my-3 pb-5">
+  <div class="">
+    <div id="{{categoria}}" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        @for (product of carrusel(); track product; let i = $index) {
+
+          <div  class="carousel-item " [class.active]="i === 0">
+          @for (item of product.producto; track item._id ; let x = $index) {
+            <div #{{item._id}} class="col-lg-3 col-12 col-md-6" >
+              @defer(on viewport({{item._id}}); prefetch on idle){
+            <div class="d-flex justify-content-center align-items-stretch">
+
+            <a [routerLink]="['tienda/DetailProduct/', item._id]">
+            <div class="border-0 my-2 carousel-card text-center card rounded-4 p-2">
+              <span class="position-absolute m-2 text-white z-index-1 button-special top-0 end-0 badge rounded-pill bg-danger">
+          {{this.CarritoServicio.porcentajeDescuentoProducto(item)}}%
+          <span class="visually-hidden">unread messages</span>
+        </span>
+
+
+              <div class="esfera"></div>
+              <img [src]="'https://imagenes.upgrade.com.pe/ImagenesEcommerce/' + (item.urlimagen || '')" class="img p-3 m-auto" alt="...">
+              <div class="card-body  d-flex flex-column">
+                <h6 class="text-secondary">{{ item.marca.nombre }}</h6>
+                @if(item.nombreEcommerce.length < 23){
+                  <span class="m-0 m-md-auto">{{item.nombreEcommerce }} </span>
+                }@else {
+                  <span>{{item.nombreEcommerce }} </span>
+                }
+                @if(item.precioPromocionEcommerce == 0){
+                <p>{{item.precioEcommerce | currency: "S/. "}}</p>
+                }@else{
+                  <p>{{item.precioPromocionEcommerce | currency: "S/. "}}</p>
+                }
+                <div>
+                <button class="bg-upgrade  w-100 text-white m-auto btn-add-car-oft rounded-pill text-upgrade">
+                  Comprar Ahora
+              </button>
+            </div>
+
+              </div>
+
+
+            </div>
+        </a>
+
+
+          </div>
+          }
+          </div>
+
+          }
+        </div>
+      }
+      </div>
+      <a class="carousel-control-prev prev boton-carousel" href="#{{categoria}}" role="button" data-bs-slide="prev">
+        <span class="bi bi-chevron-left text-upgrade" aria-hidden="true" style="font-size: 5rem;"></span>
+      </a>
+      <a class="carousel-control-next next boton-carousel " href="#{{categoria}}" role="button" data-bs-slide="next">
+        <span class="bi bi-chevron-right text-upgrade" aria-hidden="true" style="font-size: 5rem;"></span>
+      </a>
+
+      <!-- <a class="boton-carousel prev"  href="#recipeCarousel" role="button" data-bs-slide="prev">
+        <span class="bi bi-chevron-left text-upgrade" style="font-size: 5rem;"></span>
+      </a>
+
+    <a class="boton-carousel next" type="button" href="#recipeCarousel" role="button" data-bs-slide="next">
+      <span class="bi bi-chevron-right text-upgrade" style="font-size: 5rem;"></span>
+    </a> -->
+
+
+    </div>
+  </div>
+</div>
+</div>

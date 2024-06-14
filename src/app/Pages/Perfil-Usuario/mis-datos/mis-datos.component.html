@@ -1,0 +1,74 @@
+
+  <h5 class="fw-bold">
+    INFORMACIÓN DE USUARIO</h5>
+
+<span class="fw-semibold text-secondary"
+  >Aquí podrás encontrar información acerca de tu Perfil.</span
+>
+<hr />
+<div class="row show active" id="mis-datos" role="tabpanel">
+  <div class="mb-3 col-6">
+    <label class="form-label">Nombres</label>
+    <input type="text" [value]="Nombre" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">{{
+      TipoDocumentoIdentidad
+    }}</label>
+    <input type="text" [value]="Dni" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Correo</label>
+    <input
+      type="email"
+      [value]="Email"
+      class="form-control"
+      id="exampleInputEmail1"
+      readonly
+    />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Telefono</label>
+    <input type="text" [value]="Telefono" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label"
+      >Fecha Registro</label
+    >
+    <input
+      type=""
+      [value]="Fecha | date : 'dd/MM/yyyy'"
+      class="form-control"
+      readonly
+    />
+  </div>
+
+  <div class="d-flex justify-content-between align-items-stretch">
+    <h5 class="py-2 fw-semibold">MI DIRECCIÓN</h5>
+    <!-- <button class="btn btn-upgrade text-white" (click)="openDialog()">
+      <i class="bi bi-pencil-square me-2"></i>Actualizar Datos de envio</button> -->
+  </div>
+
+  <div class="mb-3 col-6">
+    <label class="form-label">Dirección</label>
+    <input type="text" [value]="Direccion" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Distrito</label>
+    <input type="text" [value]="Distrito" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Provincia</label>
+    <input type="text" [value]="Provincia" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Departamento</label>
+    <input type="email" [value]="Departamento" class="form-control" readonly />
+  </div>
+  <div class="mb-3 col-6">
+    <label class="form-label">Pais</label>
+    <input type="email" [value]="Pais" class="form-control" readonly />
+  </div>
+</div>
+
+<app-carga *ngIf="carga"></app-carga>

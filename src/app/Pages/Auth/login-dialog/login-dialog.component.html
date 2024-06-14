@@ -1,0 +1,45 @@
+<h1 mat-dialog-title class="fw-bold text-uppercase">Inicia Sesión en Upgrade</h1>
+<div mat-dialog-content class="overflow-hidden">
+  <form [formGroup]="loginform" (ngSubmit)="onLogin()">
+    <div class="mb-3">
+      <input type="email" class="form-control px-3 " minlength="1" name="correo" formControlName="correo" placeholder="Ingrese su correo"
+         />
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control px-3 " minlength="1" name="pass" formControlName="pass" placeholder="Ingrese su contraseña" [(ngModel)]="pass" />
+    </div>
+    @if(boton == 'Iniciando...'){
+      <button mat-flat-button color="primary" class=" w-100" type="button" disabled>
+        <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+        <span class="fs-8" role="status">Iniciando...</span>
+      </button>
+      }@else if(boton == 'Bienvenido'){
+        <button mat-flat-button class="btn-button fw-bold w-100 fs-8">
+          Bienvenido!
+        </button>
+      }@else if(boton == 'Iniciar Sesión'){
+        <button mat-flat-button type="submit" [disabled]="!loginform.valid" color="primary" class="fs-8 btn w-100">
+          Iniciar Sesión
+        </button>
+      }
+      @if(isInvitado){
+        <button [routerLink]="['compra-invitado']"
+        class="btn btn-upgradecustom-outline-primary border-1 fw-bold my-2 w-100 position-relative">
+        Compra como invitado
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+          Nuevo
+          <span class="visually-hidden"></span>
+        </span>
+      </button>
+      }
+  </form>
+
+  <div class="modal-footer d-flex pt-3 justify-content-start">
+    <p class="d-block text-dark me-2"> ¿Eres nuevo en Upgrade? </p>
+    <a [routerLink]="['register']"
+      mat-dialog-close
+     type="button" class="d-block text-upgrade fw-semibold"> Registrate aqui!
+    </a>
+  </div>
+
+</div>

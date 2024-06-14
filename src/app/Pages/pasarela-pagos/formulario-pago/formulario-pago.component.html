@@ -1,0 +1,80 @@
+<!-- <h6 class="form-label mb-3 mx-2">¿CÓMO PREFIERES PAGAR?</h6> -->
+
+<section class="my-0">
+  <div class="border-0 card m-0 mb-3" style="padding-right: 1rem">
+    <h5 class="form-label fw-bold text-upgrade" style="margin-bottom: 0rem">
+      TARJETA DE CRÉDITO O DÉBITO
+    </h5>
+    <app-tarjeta-credito (event)="RealizarCompra($event)"></app-tarjeta-credito>
+  </div>
+<!--
+  <div class="bg-light card m-0 pt-3 mt-2 mb-3">
+          <div class="d-flex">
+            <div class="row m-0 p-0">
+              <h5 class="form-label fw-bold text-upgrade" style="margin-bottom: 0rem;"> TRANSFERENCIA
+                O
+                DEPÓSITO
+                BANCARIO BCP </h5>
+              <div fxLayout="row wrap">
+                <div class="p-1">
+                  <span class="text-muted">Puedes usar cualquiera de estos medios:</span>
+                </div>
+                <div class="d-flex justify-content-left" style="flex-direction: column;">
+                  <div class="d-flex" style="align-content: center;">
+                    <mat-icon class="icon_transferencia">fiber_manual_record</mat-icon>
+                    <div style="margin-top: 2px;">
+                      Mediante<strong> aplicativo</strong> de tu banco:</div>
+                  </div>
+                  <div style="margin-left: 3%;"> Si tienes cuenta BCP, Transferencia
+                    entre cuentas: <strong>215-1528133-0-03</strong>
+                  </div>
+                  <div style="margin-left: 3%;">
+                    Si no tienes cuenta BCP, Transferencia Interbancaria, CCI:
+                    <strong>002-215-001528133003-23</strong>
+                  </div>
+                  <br>
+                  <div class="d-flex" style="align-content: center;">
+                    <mat-icon class="icon_transferencia">fiber_manual_record</mat-icon>
+                    <div style="margin-top: 2px;">
+                      En <strong>agente</strong> BCP (Sólo si estás en la ciudad de Arequipa)
+                    </div>
+                  </div>
+                  <div style="margin-left: 3%;"> Cuenta: <strong>215-1528133-0-03</strong> BCP Soles
+                  </div>
+                  <br>
+                  <div class="d-flex" style="align-content: center;">
+                    <mat-icon class="icon_transferencia">fiber_manual_record</mat-icon>
+                    <div style="margin-top: 2px;">
+                      En <strong>ventanilla</strong> de un Banco BCP (Si no estás en la ciudad de
+                      Arequipa)
+                    </div>
+                  </div>
+                  <div style="margin-left: 3%;">Cuenta: <strong>215-1528132-0-93</strong> BCP Soles
+                  </div>
+                  <div style="font-size: small; margin-left: 3.5%;">* En este caso te pedirán tu código el cual es tu DNI si eres persona natural o tu RUC si eres empresa.</div></div>
+              </div>
+              <button class="btn btn-success mt-3">Generar Orden de Compra!</button>
+            </div>
+          </div>
+        </div>
+
+ -->
+
+
+        <div class="bg-light card m-0 py-3 mt-2">
+          <h6 class="fw-bold ms-3">¡INFORMACIÓN IMPORTANTE!</h6>
+          <div class="d-flex">
+            <!-- <div class="ms-3 p-0">
+                Al efectuar la solicitud de tu pedido u orden de compra, llevaremos a cabo la verificación de la transferencia correspondiente que puede demorar en un plazo de 3 dias. Posteriormente,
+                procederemos a la aprobación de la orden, la cual podrás consultar en tu perfil, específicamente en la sección de  <a class="cursor-pointer text-upgrade fw-bold" [routerLink]="['/perfil/pedidos']">"Mis Pedidos"</a> . En este apartado,
+                podrás verificar si tu pedido ha sido aprobado o no. Una vez que se haya confirmado la aprobación, se iniciará el proceso de entrega, pudiendo optar
+                por la modalidad de envío o la opción de recogerlo en nuestra tienda, según tu
+                preferencia.
+            </div> -->
+            <div class="ms-3 p-0">
+              Una vez realizada el pago, procederemos a verificar la transferencia correspondiente, lo cual podría demorar hasta 3 días. Posteriormente, iniciaremos el proceso de entrega de tu pedido.
+          </div>
+          </div>
+
+        </div>
+</section>

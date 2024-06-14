@@ -1,0 +1,271 @@
+
+  <div class="container mt-5 container-reclamaciones">
+    <h1 class="text-center">Libro de Reclamaciones</h1>
+    <!-- <p class='text-center'>Fecha: </p> -->
+    <div class='text-secondary' style="font-size: 0.8rem;">
+      <p>Gracias por diríjase a la página de libro de reclamaciones, porfavor registre cualquier problema o sugerencia que tenga sobre nuestro servicio. Su opinión es valiosa para nosotros y nos ayudará a mejorar la calidad de nuestro servicio</p>
+      <p>Para cualquier consultas, sugerencias y solicitudes puede comunicarse con al "0000000", de lunes a sabado de 09:00 a 21:00 horas, o acercarse a cualquiera de nuestras
+      tiendas.</p>
+    </div>
+      <form class="mt-5">
+        <div class="">
+
+         <!-- DATOS DEL USUARIO -->
+          <div class="row bg-light border mb-4">
+
+            <h5 class="fw-bold mt-3">1. Datos de la persona que presenta el reclamo</h5>
+
+            <div class="col-12 col-lg-3">
+              <div class="mb-3">
+                <label htmlFor="exampleInputEmail1" class="form-label text-secondary">Tipo de Documento *</label>
+                <!-- {/* <input type="email" class="form-control" id="exampleInputEmail1"> */} -->
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Seleccione</option>
+                  <option value="1">DNI</option>
+                  <option value="2">RUC</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-lg-9">
+              <div>
+                <label class="form-label text-secondary">Número de Documento *</label>
+                <input type="text" class="form-control" id="NumeroDocumento">
+              </div>
+              <div>
+                <div style="text-align: right;">
+                  <span style="color: #aaa; font-size: 13px; font-family: monospace;">(máximo 8 caracteres)</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">Nombres *</label>
+                <input type="text" class="form-control" id="Nombres">
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">Apellidos *</label>
+                <input type="text" class="form-control" id="Apellidos">
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">Teléfono Fijo</label>
+                <input type="text" class="form-control" id="Teléfono-fijo">
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">Teléfono Celular *</label>
+                <input type="text" class="form-control" id="Teléfono-Celular">
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="exampleInputEmail1" class="form-label text-secondary">Correo Electrónico *</label>
+                <input type="email" class="form-control" id="CorreoElectrónico">
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Forma de Respuesta *</label>
+                <!-- {/* <select class="form-select" value={selectedOption} onChange={handleSelectChange} disabled={!formActivado}  aria-label="Default select example"> */} -->
+                <select class="form-select"   aria-label="Default select example">
+                  <option selected>Seleccione</option>
+                  <option value="1">Correo Electrónico</option>
+                  <option value="3">Presencial</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">Domicilio *</label>
+                <input type="text" class="form-control" id="Domicilio">
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="departamento" class="form-label text-secondary">Departamento *</label>
+                <app-select-departamento></app-select-departamento>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="provincia" class="form-label text-secondary">Provincia *</label>
+                <app-select-provincia></app-select-provincia>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label htmlFor="distrito" class="form-label text-secondary">Distrito *</label>
+                <app-select-provincia></app-select-provincia>
+              </div>
+
+            </div>
+         </div>
+
+        <!-- INFORMACION GENERAL DE LA RECLAMACION -->
+         <div class="bg-light row border mb-4">
+          <h5 class="fw-bold mt-3">2. INFORMACION GENERAL</h5>
+
+          <div class="col-12 col-lg-6">
+            <div class="mb-3">
+              <label class="form-label text-secondary">Tienda donde realizó la compra *</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione</option>
+                <option value="1">Quiñones</option>
+                <option value="2">Rivero</option>
+                <option value="3">Lima</option>
+                <option value="4">Cusco</option>
+              </select>
+            </div>
+          </div>
+
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Tipo de bien contratado *</label>
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Seleccione</option>
+                  <option value="1">Producto</option>
+                  <option value="2">Servicio</option>
+                </select>
+              </div>
+            </div>
+
+
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Número de Ticket</label>
+                <input type="text" class="form-control" id="NumeroDocumento">
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Fecha de Compra</label>
+                <div class="input-group date" id="datepicker">
+                <input type="date" class='form-control' />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Monto Reclamado S/.</label>
+                <input type="text" class="form-control" placeholder="S/ 999" id="monto">
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Descripción</label>
+                <input type="text" class="form-control" id="NumeroDocumento">
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="mb-3">
+                <label class="form-label text-secondary">Orden de Compra</label>
+                <input type="text" class="form-control" id="NumeroDocumento">
+              </div>
+            </div>
+
+          </div>
+
+
+
+<!-- -------------AREA DEL MOTIVO-----------------   -->
+
+<div class="row bg-light border">
+  <h5 class="fw-bold mt-3">3. DETALLES DEL RECLAMO</h5>
+
+  <div class="col-12 col-lg-6">
+    <div class="mb-3">
+      <label htmlFor="exampleInputEmail1" class="form-label text-secondary">Motivo</label>
+      <select id="motivo" class="form-select" >
+          <option value="">Seleccione</option>
+          <option value="Queja">Queja</option>
+          <option value="Reclamo">Reclamo</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <div class="mb-3">
+      <label htmlFor="" class="form-label text-secondary">Fecha de comunicación de la respuesta</label>
+      <input type="text" class="form-control" id="Teléfono-fijo" aria-describedby="Fecha" readonly />
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-12">
+     <div><label htmlFor="" class="form-label text-secondary">Queja: Descontento respecto a la atención al público</label></div>
+     <div><label htmlFor="" class="form-label text-secondary">Reclamo: Disconformidad relacionada a los productos o servicios</label></div>
+  </div>
+  <div class="col-12 col-lg-12 mt-3">
+    <div>
+      <label class="form-label text-secondary">Detalle de Reclamo *</label>
+      <textarea class="form-control" placeholder='Texto aqui...' id="exampleFormControlTextarea1" rows="2"></textarea>
+    </div>
+    <div style="text-align: right;">
+      <span style="font-size: 13px; font-family: monospace; color: #aaa;">0/5000</span>
+    </div>
+  </div><div class="col-12 col-lg-12">
+      <div>
+        <label class="form-label text-secondary">Pedido de Cliente *</label>
+        <textarea class="form-control" placeholder='Texto aqui...' id="exampleFormControlTextarea1" rows="2"></textarea>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-size: 13px; font-family: monospace; color: #aaa;">0/5000</span>
+      </div>
+    </div>
+
+</div>
+
+
+
+          <div class='mt-4 col-12 col-lg-12 row'>
+            <div class="col-12 col-lg-12">
+              <div class="mb-3">
+                <label htmlFor="" class="form-label text-secondary">(*) Campos Obligatorios</label>
+                <div>
+                  <span class="badge fw-normal text-dark p-3" style="background-color: rgb(240,247,214);">El Proveedor deberá dar respuesta al reclamo en un plazo no mayor de quince (15) días hábiles improrrogables.</span>
+                </div>
+                <div class='my-3'>
+                  <a class="text-success" data-bs-toggle="modal" data-bs-target="#PoliticaModal">Política de privacidad de Datos Personales</a>
+                </div>
+                <div class="mb-2 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" htmlFor="">SI ACEPTO el tratamiento de datos para fines estadísticos y/o históricos.</label>
+                </div>
+                <div class="mb-2 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" htmlFor="">NO ACEPTO el tratamiento de datos para fines estadísticos y/o históricos.</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class='text-center my-4'>
+          <button type="submit" class="px-5 btn btn-upgrade rounded-pill">Enviar</button>
+        </div>
+      </form>
+    </div>
+
+ <!-- Modal de Politica y Privacidad  -->
+    <div class="modal fade" id="PoliticaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- <PoliticaPrivacidad></PoliticaPrivacidad> -->
+          </div>
+        </div>
+      </div>
+    </div>

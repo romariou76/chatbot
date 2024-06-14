@@ -1,0 +1,8 @@
+.barra-busqueda{
+  width: 30rem !important;
+}
+
+.input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}

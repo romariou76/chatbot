@@ -1,0 +1,71 @@
+<!-- <div class="tabs">
+  <ul class="nav nav-fill mb-3">
+    <li class="nav-item">
+      <a class="nav-link border-tab-inicial text-dark" style="cursor: pointer;" [ngClass]="{ 'border-tab': selectedTab === 'lo-mas-nuevo' }" (click)="setSelectedTab('lo-mas-nuevo')" data-toggle="tab" role="tab">LO NUEVO</a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link border-tab-inicial text-dark"  style="cursor: pointer;" [ngClass]="{ 'border-tab': selectedTab === 'mas-vendido' }" (click)="setSelectedTab('mas-vendido')" data-toggle="tab"  role="tab">LO MAS VENDIDO</a>
+    </li>
+    <li class="nav-item" >
+      <a class="nav-link border-tab-inicial text-dark"  style="cursor: pointer;" [ngClass]="{ 'border-tab': selectedTab === 'recomendado' }" (click)="setSelectedTab('recomendado')" data-toggle="tab"  role="tab">RECOMENDADO</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" style="margin-bottom: 5rem">
+    <div class="tab-pane fade" [ngClass]="{ 'show active': selectedTab === 'lo-mas-nuevo' }" id="lo-mas-nuevo" role="tabpanel">
+      <div class="row">
+        LO MAS NUEVO PAPI
+      </div>
+    </div>
+
+    <div class="tab-pane fade" [ngClass]="{ 'show active': selectedTab === 'mas-vendido' }" id="mas-vendido" role="tabpanel">
+      <div class="row">
+        LO MAS VENDIDO
+      </div>
+    </div>
+
+    <div class="tab-pane fade" [ngClass]="{ 'show active': selectedTab === 'recomendado' }" id="recomendado" role="tabpanel">
+      <div class="row">
+          LO MAS RECOMENDADO
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<section class="">
+
+  <div class="d-flex align-items-center my-3 my-lg-5">
+    <hr class="custom-line flex-grow-1">
+    <h3 class="mx-3">¡PRODUCTOS RECOMENDADOS!</h3>
+    <hr class="custom-line flex-grow-1">
+  </div>
+  <!-- <h6 class="text-center">PRODUCTOS RECOMENDADOS</h6> -->
+
+<div class="d-flex justify-content-center gap-5">
+
+  <div class="bg-upgrade rounded-circle p-3 align-items-center d-flex">
+    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="45" viewBox="0 0 57 45" fill="none">
+      <path d="M56.2644 38.3251L51.3389 30.9369V5.66363C51.3389 2.56907 48.8116 0.0473633 45.7227 0.0473633H12.025C8.93327 0.0473633 6.40875 2.56907 6.40875 5.66363V30.9369L1.48328 38.3251C0.79248 39.3613 0.79248 39.9594 0.79248 40.7653V42.1694C0.79248 43.5735 2.19655 44.9775 3.59781 44.9775H54.1499C55.5511 44.9775 56.9552 43.5735 56.9552 42.1694V40.7653C56.9552 39.9594 56.9552 39.3613 56.2644 38.3251ZM20.4494 39.3613L22.1343 36.5531H35.6134L37.2982 39.3613H20.4494ZM45.7227 28.1287H12.025V5.66363H45.7227V28.1287Z" fill="white"/>
+      </svg>
+  </div>
+
+  <div class="bg-upgrade rounded-circle p-3 align-items-center d-flex">
+    <svg xmlns="http://www.w3.org/2000/svg" width="54" height="49" viewBox="0 0 54 49" fill="none">
+      <path d="M45.8592 13.9024C50.2624 13.9024 53.8168 17.4568 53.8168 21.86V37.7753H43.2066V48.3855H11.3761V37.7753H0.765869V21.86C0.765869 17.4568 4.32028 13.9024 8.72351 13.9024H11.3761V0.639648H43.2066V13.9024H45.8592ZM16.6812 5.94474V13.9024H37.9015V5.94474H16.6812ZM37.9015 43.0804V32.4702H16.6812V43.0804H37.9015ZM43.2066 32.4702H48.5117V21.86C48.5117 20.4011 47.3181 19.2075 45.8592 19.2075H8.72351C7.26461 19.2075 6.07096 20.4011 6.07096 21.86V32.4702H11.3761V27.1651H43.2066V32.4702ZM45.8592 23.1863C45.8592 24.6452 44.6655 25.8388 43.2066 25.8388C41.7477 25.8388 40.5541 24.6452 40.5541 23.1863C40.5541 21.7274 41.7477 20.5338 43.2066 20.5338C44.6655 20.5338 45.8592 21.7274 45.8592 23.1863Z" fill="black"/>
+      </svg>
+  </div>
+
+  <div class="bg-upgrade rounded-circle p-3 align-items-center d-flex">
+    <svg xmlns="http://www.w3.org/2000/svg" width="58" height="58" viewBox="0 0 58 58" fill="none">
+      <path d="M50.0948 7.12695H7.32343C4.70962 7.12695 2.57104 9.26552 2.57104 11.8793V40.3936C2.57104 43.0074 4.70962 45.146 7.32343 45.146H19.2044V49.8984H38.2139V45.146H50.0948C52.7087 45.146 54.8235 43.0074 54.8235 40.3936L54.8472 11.8793C54.8472 9.26552 52.7087 7.12695 50.0948 7.12695ZM50.0948 40.3936H7.32343V11.8793H50.0948V40.3936Z" fill="black"/>
+      </svg>
+  </div>
+
+  <div class="bg-upgrade rounded-circle p-3 align-items-center d-flex">
+    <svg xmlns="http://www.w3.org/2000/svg" width="57" height="45" viewBox="0 0 57 45" fill="none">
+      <path d="M55.5171 38.3251L50.5916 30.9369V5.66363C50.5916 2.56907 48.0643 0.0473633 44.9753 0.0473633H11.2777C8.18595 0.0473633 5.66144 2.56907 5.66144 5.66363V30.9369L0.735967 38.3251C0.045166 39.3613 0.045166 39.9594 0.045166 40.7653V42.1694C0.045166 43.5735 1.44923 44.9775 2.85049 44.9775H53.4026C54.8038 44.9775 56.2079 43.5735 56.2079 42.1694V40.7653C56.2079 39.9594 56.2079 39.3613 55.5171 38.3251ZM19.7021 39.3613L21.387 36.5531H34.866L36.5509 39.3613H19.7021ZM44.9753 28.1287H11.2777V5.66363H44.9753V28.1287Z" fill="black"/>
+      </svg>
+  </div>
+
+</div>
+</section>

@@ -1,0 +1,52 @@
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+h1{
+  color: #144373;
+  font-family: "Bebas Neue";
+  text-align: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+
+}
+
+.list-icon{
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  padding: 0;
+  a{
+    position: relative;
+    overflow: hidden;
+  }
+  svg{
+    width: 82px;
+    height: 82px;
+    transition: transform 0.3s ease-in-out;
+  }
+  a:hover{
+
+    svg{
+      transform: scale(1.2);
+      cursor: pointer;
+
+
+    }
+  }
+}
+
+
+@media(max-width: 800px) {
+  h1 {
+    font-size: 30px;
+  }
+
+
+}

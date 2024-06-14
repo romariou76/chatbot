@@ -1,0 +1,96 @@
+<div>
+  <div class="container-profile my-4">
+    <p class="fs-2 fw-bold text-center">Mi Cuenta de Upgrade</p>
+
+    <div class="tabs row">
+      <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4">
+        <div class="border rounded-3 mb-4">
+          <div
+            #avatardesktop
+            class="card-body text-center d-none d-sm-none d-lg-block"
+          >
+            @defer (on viewport(avatardesktop); prefetch on idle) {
+
+            <img
+              src="{{ ProfileImgDefault }}"
+              alt="avatar"
+              class="rounded-circle img-fluid"
+              id="preview"
+              style="width: 180px; aspect-ratio: 1/1"
+            />
+            <h5 class="my-3 text-capitalize">¡Hola {{ NombreUsuario }}!</h5>
+            }
+          </div>
+
+          <div
+            #movileavatar
+            class="d-flex justify-content-between mx-3 d-block d-md-block d-xs-block d-lg-none"
+          >
+            @defer (on viewport(movileavatar); prefetch on idle) {
+            <div class="row">
+              <div class="col text-center m-auto">
+                <img
+                  src="{{ ProfileImgDefault }}"
+                  alt="avatar"
+                  class="rounded-circle"
+                  id="preview"
+                  style="width: 30px; height: 30px; aspect-ratio: 1/1"
+                />
+              </div>
+              <div class="col">
+                <h5 class="my-3 text-capitalize">¡Hola{{ NombreUsuario }}!</h5>
+              </div>
+            </div>
+            }
+          </div>
+
+          <div #misseleccionables class="list-group rounded-0 mt-0 mt-lg-4">
+            @defer (on viewport(misseleccionables); prefetch on idle) {
+            <a
+              class="list-group-item cursor-pointer border-0"
+              aria-current="true"
+              [ngClass]="{
+                'bg-upgrade text-white': TabSeleccionado == 'mis-datos'
+              }"
+              [routerLink]="['/perfil/mis-datos']"
+              (click)="SeleccionarTab('mis-datos')"
+              data-toggle="tab"
+              role="tab"
+            >
+              <i class="bi bi-person-lines-fill me-2"></i>Mis Datos
+            </a>
+            <a
+              class="list-group-item cursor-pointer border-0"
+              tabIndex="-1"
+              aria-disabled="true"
+              [ngClass]="{
+                'bg-upgrade text-white': TabSeleccionado == 'pedidos'
+              }"
+              [routerLink]="['/perfil/pedidos']"
+              (click)="SeleccionarTab('pedidos')"
+              data-toggle="tab"
+              role="tab"
+              ><i class="bi bi-cart-check-fill me-2"></i> Mis Compras
+            </a>
+
+            <a
+              class="list-group-item cerrar-sesion-a cursor-pointer border-0"
+              (click)="CerrarSesion()"
+              ><i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesion
+            </a>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xxl-10 col-xl-9 col-lg-9 col-md-8 border rounded-3 p-4">
+        <div class="tab-pane fade show active" role="tabpanel">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+  @if(carga){
+  <app-carga></app-carga>
+  }
+</div>

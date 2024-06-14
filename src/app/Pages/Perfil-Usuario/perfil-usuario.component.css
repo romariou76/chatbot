@@ -1,0 +1,65 @@
+.container-profile {
+  padding-right: 16rem;
+  padding-left: 16rem;
+  position: relative;
+}
+
+@media screen and (max-width: 1700px) {
+  .container-profile{
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .container-profile{
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+
+@media screen and (max-width: 1500px) {
+  .container-profile{
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container-profile{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .container-profile{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .container-profile{
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container-profile{
+    padding-left: .8rem;
+    padding-right: .8rem;
+  }
+}
+
+.cerrar-sesion-a{
+  transition: ease-in-out .1s;
+}
+
+.cerrar-sesion-a:hover{
+  background-color: rgb(255, 0, 0);
+  color: white;
+}

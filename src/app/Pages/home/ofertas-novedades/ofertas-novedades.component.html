@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>OFERTAS Y NOVEDADES</h1>
+
+  <ul>
+    <a (click)="changeImages('ofertaTemporada')">Regreso a Clases</a>
+    <a (click)="changeImages('laptops')">Laptops</a>
+    <a (click)="changeImages('impresoras')">Impresoras</a>
+    <!-- <a (click)="changeImages('gamer')">Gamer</a> -->
+  </ul>
+
+  <div class="wrapper">
+    <div class="grid1">
+      <img [routerLink]="['tienda']" [src]="imageData[selectedCategory][0]" alt="">
+      <!-- <div>
+        <button [routerLink]="['tienda']" >Comprar Ahora</button>
+
+      </div> -->
+    </div>
+    <div class="grid2">
+      <img [routerLink]="['tienda']"
+      [src]="imageData[selectedCategory][1]"
+        alt="">
+
+    </div>
+    <div class="grid3 ">
+      <img [routerLink]="['tienda']"
+      [src]="imageData[selectedCategory][2]"
+        alt="">
+
+    </div>
+    <div class="grid4">
+      <img [routerLink]="['tienda']"
+      [src]="imageData[selectedCategory][3]"
+        alt="">
+
+    </div>
+    <div class="grid5">
+      <img [routerLink]="['tienda']"
+      [src]="imageData[selectedCategory][4]"
+        alt="">
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="input-group">
+  <a class="cursor-pointer seleccionable text-decoration-none form-select w-100" data-bs-toggle="dropdown" aria-expanded="false"><span id="textdistrito" name="textdistrito">{{nombre}}</span></a>
+  <ul class="dropdown-menu w-100">
+      <li *ngFor="let distrito of distritos"><a class="dropdown-item seleccionable" (click)="clicSelectDistrito(distrito)" >{{distrito.nombre}}</a>
+      </li>
+  </ul>
+</div>

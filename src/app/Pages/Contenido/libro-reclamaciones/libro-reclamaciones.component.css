@@ -1,0 +1,15 @@
+.container-reclamaciones{
+  padding: 0rem 15rem 0rem 15rem;
+}
+
+@media screen and (max-width: 1080px) {
+  .container-reclamaciones {
+    padding: 0rem 10rem 0rem 10rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container-reclamaciones {
+    padding: 0rem 1rem 0rem 1rem;
+  }
+}

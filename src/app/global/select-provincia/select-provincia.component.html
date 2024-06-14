@@ -1,0 +1,8 @@
+<div class="input-group mb-3 ">
+  <a class="cursor-pointer seleccionable form-select w-100 text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false"><span id="textprovincia" name="textprovincia">{{nombre}}</span></a>
+
+  <ul class="dropdown-menu w-100">
+      <li *ngFor="let provincia of provincias"><a class="dropdown-item seleccionable" (click)="clicSelectProvincia(provincia)" >{{provincia.nombre}}</a>
+      </li>
+  </ul>
+</div>

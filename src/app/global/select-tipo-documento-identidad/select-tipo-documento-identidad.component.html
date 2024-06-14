@@ -1,0 +1,9 @@
+<div class="input-group mb-3">
+  <a class="seleccionable form-select modselect text-decoration-none cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false"><span id="texttipodocumento" name="texttipodocumento">{{nombre}}</span></a>
+
+  <ul class="dropdown-menu w-100">
+      <!-- <input class=" form-control" id="tipodocumentobusqueda" name="tipodocumentobusqueda" /> -->
+      <li *ngFor="let tipodocumentoidentidad of tipodocumentoidentidades"><a class="cursor-pointer dropdown-item seleccionable" (click)="clicSelectTipoDocumentoIdentidad(tipodocumentoidentidad)" >{{tipodocumentoidentidad.nombre}}</a>
+      </li>
+  </ul>
+</div>

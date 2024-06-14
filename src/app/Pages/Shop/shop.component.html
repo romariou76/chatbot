@@ -1,0 +1,224 @@
+  <div class="container" id="arriba">
+    <div class="row">
+      <div #categorias class="col-xxl-2 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 d-none  d-lg-block">
+        @defer(on viewport(categorias); prefetch on idle){
+          <app-categorias-productos (event)="eventCategoria($event)"></app-categorias-productos>
+        }
+      </div>
+
+      <!-- Mapeo Productos -->
+      <div class="col-xxl-10 col-xl-9 col-lg-9 col-md-12 col-12">
+        <div class="d-flex align-items-center  w-100 justify-content-between">
+          <app-barrabusqueda class="barra-busqueda" (event)="eventCategoria($event)"></app-barrabusqueda>
+          <button class="d-lg-none d-md-block btn btn-upgrade" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtros" aria-controls="offcanvasExample">
+            <i class="bi bi-sliders"></i>
+            Filtrar
+          </button>
+          <app-cambiar-vista-productos
+          class="w-auto d-none d-md-block"
+          [BotonInicial]="BotonInicial"
+          [BotonLista]="BotonLista"
+          (restaurarEstadoClick)="restaurarEstado()"
+          (cambiarClaseClick)="cambiarClase()"
+          ></app-cambiar-vista-productos>
+        </div>
+
+
+        @if(vistasconfig == true){
+        <div #product class="row align-items-stretch row-cols-2 row-cols-lg-3 row-cols-xxl-5 row-cols-xl-3  row-cols-md-3 gx-2 gx-lg-3 gx-xl-4 gy-2 gy-lg-3 gy-xl-4">
+          @defer (on viewport(product); prefetch on idle) { @for (producto of productos(); track $index) {
+          <div #{{producto._id}} class="d-flex">
+            @defer (on viewport({{producto._id}}); prefetch on idle) {
+              <div class="card rounded-4 border-0 p-3 align-items-stretch contenedor-producto text-start text-lg-center">
+                @if(this.CarritoServicio.confirmarLiquidacion(producto)){
+                <div class="card_box z-index-1">
+                  <span>
+                    <p class="texto-etiqueta">{{producto.evento.nombre}}</p>
+                  </span>
+                </div>
+                }
+              <span class="position-absolute m-2 z-index-1 button-special top-0 end-0 badge rounded-pill bg-danger">
+                {{this.CarritoServicio.porcentajeDescuentoProducto(producto) }}%
+                <span class="visually-hidden">unread messages</span>
+              </span>
+              <a [routerLink]="['DetailProduct/', producto._id]" class="text-decoration-none mb-2">
+                <figure class="d-flex justify-content-center">
+                  <img [src]="
+                      'https://imagenes.upgrade.com.pe/ImagenesEcommerce/' +
+                      (producto.urlimagen || '')
+                    " class="card-img-top img-product img-fluid align-items-center text-center object-fit-cover w-75" />
+                </figure>
+                <h6 class="fw-bold text-dark text-start text-lg-center fs-09">
+                  {{
+                  producto.nombre.length > 31
+                  ? producto.nombre.slice(0, 30) + "..."
+                  : producto.nombre
+                  }}
+                </h6>
+                @if(producto.marca.nombre === null){
+                  <span class="text-start text-lg-center" style="color: rgba(0, 0, 0, 0);">¿?</span>
+
+                }@else if(producto.marca){
+                  <span  class="fw-bold text-start d-block text-lg-center" style="color: rgba(57, 60, 60, 0.709);">
+                    {{ MarcaProducto(producto.marca) }}
+                   </span>
+                }
+
+
+                <!-- Primer Precio -->
+                @if(producto.precioPromocionEcommerce !== 0){
+                <div>
+                  @if(producto.precioPromocionEcommerce === 0){
+                    <span class="precioPromocion fw-bold m-0"></span>
+                  } @else if(producto.precioPromocionEcommerce !== 0){
+                    <span class="precioPromocion fw-bold m-0">
+                      {{ producto.precioPromocionEcommerce | currency: "S/. "}}
+                    </span>
+                  }
+                  @if(producto.precioEcommerce !== 0){
+                  <span class="d-block fw-precio-normal m-0 fs-08 text-decoration-line-through"
+                    style="color: rgba(57, 60, 60, 0.709)">
+                    {{ producto.precioEcommerce | currency: "S/. "}}
+                  </span>
+                  } @if(producto.precioEcommerce === 0){
+                  <span class="fw-bold m-0 fs-08 text-decoration-line-through"
+                    style="color: rgba(57, 60, 60, 0.709)">
+                    {{ producto.precioPromocionEcommerce | currency: "S/. "}}
+                  </span>
+                  }
+                </div>
+                }
+
+                <!--Segundo  Precio -->
+                @if(producto.precioPromocionEcommerce === 0){
+                <span class="precioPromocion fw-bold m-0">
+                  {{ producto.precioEcommerce | currency: "S/. "}}
+                </span>
+                <span class="d-block" style="color: rgba(240, 248, 255, 0);">d</span>
+              }
+              </a>
+              <div class="mt-auto">
+                <button class="boton-comprar m-auto fw-bold text-white w-100" (click)="agregarAlCarrito(producto)">
+                  Agregar al carrito
+                </button>
+                <a [routerLink]="['DetailProduct/', producto._id]" class="m-auto w-100 mt-2 boton-comprar-outline">
+                  <p class="text-dark m-auto fw-bold">Más información</p>
+                </a>
+              </div>
+            </div>
+            }
+          </div>
+
+          }@empty {
+          <div class="d-block" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8]; let i = index">
+            @if(cargandoProductos){
+            <app-esqueleton-tienda></app-esqueleton-tienda>
+            }
+          </div>
+
+          }
+          }@loading(){
+          <div class="d-block" *ngFor="let _ of [1, 2, 3, 4, 5, 6, 7, 8]; let i = index">
+            <app-esqueleton-tienda></app-esqueleton-tienda>
+          </div>
+          }
+        </div>
+        }@else if(vistasconfig == false) { @for (producto of productos(); track
+        $index) {
+        <div #productlista class="d-block pt-3">
+          @defer(on viewport(productlista); prefetch on idle){
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-5">
+                <figure class="text-center">
+                  <img [src]="
+                      'https://imagenes.upgrade.com.pe/ImagenesEcommerce/' +
+                      (producto.urlimagen || '')
+                    " class="rounded-start" height="250" />
+                </figure>
+              </div>
+              <div class="col-md-7 m-auto">
+                <div class="card-body">
+                  <span class="fw-bold d-block" style="
+                      font-size: 0.8rem;
+                      color: rgba(57, 60, 60, 0.709);
+                    ">{{ producto.nombre }}</span>
+                  @if(producto.precioPromocionEcommerce !== 0){
+                  <div>
+                    @if(producto.precioEcommerce !== 0){
+                    <span class="d-block fw-bold m-0 text-decoration-line-through"
+                      style="font-size: 1rem; color: rgba(57, 60, 60, 0.709)">
+                      {{ producto.precioEcommerce | currency: "S/. "}}
+                    </span>
+                    } @if(producto.precioEcommerce === 0){
+                    <span class="fw-bold m-0 text-decoration-line-through"
+                      style="font-size: 1rem; color: rgba(57, 60, 60, 0.709)">
+                      {{ producto.precioPromocionEcommerce | currency: "S/. "}}
+                    </span>
+                    }
+                  </div>
+                  }@else if(producto.precioPromocionEcommerce === 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0"></span>
+                  }
+                  <!--Segundo  Precio -->
+                  @if(producto.precioPromocionEcommerce !== 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0">
+                    {{ producto.precioPromocionEcommerce | currency: "S/. "}}
+                  </span>
+                  }
+                  <br />
+                  @if(producto.precioPromocionEcommerce === 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0">
+                    {{ producto.precioEcommerce | currency: "S/. "}}
+                  </span>
+                  }
+                  <div class="d-flex mt-2 gap-4">
+                    <button class="CartBtn" (click)="agregarAlCarrito(producto)">
+                      <p class="textCart m-auto">Agregar</p>
+                    </button>
+                    <a [routerLink]="['DetailProduct/', producto._id]" class="btn btn-outline-primary">
+                      Ver Detalles
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+
+        } }
+        <!-- =====================paginacion================================= -->
+
+        <div class="d-flex align-items-stretch justify-content-center mt-3 py-3">
+          <span class="me-3 fw-600">Páginas:</span>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination gap-2">
+              <li class="page-item">
+                <a class="text-white btn btn-upgrade rounded-circle text-dark px-2 py-1 border-0" (click)="clicPaginacion('aasfas')">
+                  <i class="bi bi-chevron-left"></i>
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="btn btn-upgrade text-white rounded-circle text-dark px-2 py-1 w-100 border-0" aria-label="Next"
+                  (click)="clicPaginacion('siguiente')" *ngIf="productos().length === 20">
+                  <i class="bi bi-chevron-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <span>
+    <a (click)="scrollToTop()" style="cursor: pointer" class="text-decoration-none text-dark">
+      <div class="w-100 p-2 text-center fw-bold ir-arriba">
+        <i class="bi bi-chevron-up me-2"></i>
+        Subir
+      </div>
+    </a>
+  </span>
+
+<app-filtros-bar></app-filtros-bar>

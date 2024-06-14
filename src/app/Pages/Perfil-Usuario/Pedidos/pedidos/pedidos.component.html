@@ -1,0 +1,79 @@
+<div class="tab-content" style="margin-bottom: 5rem">
+  <div class="tab-pane fade show active" *ngIf="ordenesvisualizar" id="mis-datos" role="tabpanel">
+      <h5 class="fw-bold">MIS PEDIDOS REALIZADOS</h5>
+      <span class="fw-semibold text-secondary">Aquí podrás encontrar los pedidos que realizaste.</span>
+      <hr>
+
+      <div *ngIf="notapedidobool()">
+        <div class="table-responsive mt-4">
+          <table class="table table-striped align-middle mb-0 ">
+            <thead>
+              <tr>
+                <th>N° Pedido</th>
+                <th>Fecha</th>
+                <th>Pago</th>
+                <th>Estado</th>
+                <th>Monto Total</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (item of notapedidos(); track $index) {
+              <tr class="align-items-center">
+                <td>
+                  {{item.numero || ""}}
+                </td>
+                <td>
+                  {{item.fecha | date: "dd-MM-yyyy"}}
+                </td>
+                <td>
+                  Si
+                </td>
+                <td>
+                  @if(item.descargado == true) {
+                      <span class="badge bg-success fw-semibold p-1">Entregado</span>
+                  } @else if(item.aprobado == true) {
+                      <span class="badge bg-primary fw-semibold p-1">Aprobado</span>
+                  } @else {
+                      <span class="badge bg-secondary fw-semibold p-1">En Proceso</span>
+                  }
+              </td>
+                <!-- <td>
+                  <p>{{Descargas(item.descargado)}}</p>
+                </td> -->
+                <td> {{item.total | currency: "S/ "}}</td>
+
+                <td>
+                  <div class="d-flex justify-content-between w-100">
+                    <a class="btn-upgrade text-white" aria-current="true" (click)="SeleccionarTab(item._id || '')"
+                      data-toggle="tab" role="tab">
+                      Detalles
+                    </a>
+                  </div>
+                </td>
+
+              </tr>
+            }@empty {
+
+            }
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div *ngIf="!notapedidobool()" class="row text-center" style="height: 40vh;">
+        <div class="m-auto">
+          <img [src]="cajavacia">
+          <p>
+            Aún no has realizado compras
+          </p>
+          <a class="btn btn-upgrade" [routerLink]="['/tienda']">Ir a Comprar</a>
+      </div>
+    </div>
+  </div>
+
+  <app-detalle-pedidos *ngIf="detallevisualizar" (evento)="Back($event)" [id]="idordenventa"></app-detalle-pedidos>
+  <app-carga *ngIf="carga"></app-carga>
+
+</div>

@@ -1,0 +1,11 @@
+.rounded-upgrade{
+  border-radius: 2rem;
+}
+
+.custom-line {
+  border: none;
+  height: 4px; /* Cambia el valor para ajustar el ancho */
+  background-color: #000; /* Cambia el color si es necesario */
+  margin: 0 10px; /* Espacio entre el texto y las líneas */
+  color: #000000;
+}

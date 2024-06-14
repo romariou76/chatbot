@@ -1,0 +1,368 @@
+<div *ngIf="producto" class=" bg-white">
+
+  <div  *ngIf="cargandoDetalleProducto">
+    <app-esqueleton-detalle-producto></app-esqueleton-detalle-producto>
+  </div>
+
+    <div  *ngIf="!cargandoDetalleProducto" class="bg-white detalle-producto-contenedor mt-0 mt-lg-5">
+      <div class="row">
+        <section class="col-lg-6 d-flex justify-content-center align-items-center">
+          <div class="card border-0">
+            <div class="text-center contenedor-imagen">
+            <img
+              [src]="'https://imagenes.upgrade.com.pe/ImagenesEcommerce/'+(producto.urlimagen || '')"
+              [alt]="producto.nombre || ''"
+              style="width: 30rem"
+              class="img-fluid"
+            >
+            </div>
+          </div>
+        </section>
+        <section class="col-lg-6" style="margin-top: 3rem">
+          <h1 class>{{ producto && producto.marca ? producto.marca.nombre : "" }}</h1>
+          <p class="text-uppercase" style="font-size: 2rem">{{ producto.nombreEcommerce }}</p>
+          <p class="mb-0 " style="font-size: 0.8rem; color: rgba(0, 0, 0, 0.522)"> SKU: {{ producto.codigo }} </p>
+          <div class="card border-0 mb-2">
+            <div>
+              <hr>
+
+              <div class="d-flex justify-content-between" >
+                <div class="">
+                      <p *ngIf="producto.precioPromocionEcommerce !== 0" style="color: rgba(57, 60, 80, 0.800)" >Precio Regular</p>
+                      <p  *ngIf="producto.precioPromocionEcommerce == 0" class="" style="color: rgba(57, 60, 80, 0.000)">Precio</p>
+
+                      <p *ngIf="producto.precioPromocionEcommerce !== 0" class="fw-bold" style="color: rgb(05,01,127)">Precio Online</p>
+                      <p  *ngIf="producto.precioPromocionEcommerce == 0" class="fw-bold" style="color: rgb(05,01,127)">Precio </p>
+
+                      <p *ngIf="producto.precioPromocionEcommerce !== 0" class="fw-semibold" style="color: rgba(57, 60, 80, 0.800)" >Descuento Online</p>
+                      <p  *ngIf="producto.precioPromocionEcommerce == 0" style="color: rgba(57, 60, 80, 0.800)" >Descuento</p>
+                </div>
+                <div>
+                  <div *ngIf="producto.precioPromocionEcommerce !== 0">
+                        <p class="text-decoration-line-through" style="font-size: 1rem; color: rgba(57, 60, 80, 0.800)">S/ {{ producto.precioEcommerce }}</p>
+                        <p class="fw-bold" style="color: rgb(05,01,127)">S/ {{ producto.precioPromocionEcommerce }}</p>
+                      </div>
+
+                      <div  *ngIf="producto.precioPromocionEcommerce == 0">
+                        <p class="fw-bold" style="font-size: 1rem; color: rgba(57, 60, 80, 0.000)">S/ {{ producto.precioEcommerce }}</p>
+                        <p class="fw-bold" style="font-size: 1rem; color: rgba(57, 60, 80, 0.800)">S/ {{ producto.precioEcommerce }}</p>
+                      </div>
+
+                      <div *ngIf="producto.precioPromocionEcommerce !== 0" class="poligono-descuento text-white text-center align-items-center my-auto">
+                        <span class="fw-bold" style=" font-size: 14px">{{ this.cart.porcentajeDescuentoProducto(producto) }}%</span>
+                      </div>
+                      <div  *ngIf="producto.precioPromocionEcommerce == 0" class="poligono-descuento text-white text-center align-items-center my-auto">
+                        <span class="fw-bold" style="font-size: 14px">0%</span>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="d-flex text-center">
+                <div class="input-group w-50">
+                  <div class="input-group mb-3" style="height: 3rem">
+                    <button (click)="disminuir()" class="btn w-25 btn-outline-secondary rounded-start px-2 bi bi-dash" style="border-color: rgb(204,204,204)" type="button" id="button-addon1"></button>
+                    <input value="{{this.cart.cantidadagregar()}}" class="form-control text-dark text-center" style="border-color: rgb(204,204,204)" />
+                    <button (click)="aumentar()" class="btn w-25 btn-outline-secondary px-2 rounded-0 bi bi-plus" style="border-color: rgb(204,204,204)" ></button>
+                  </div>
+                </div>
+                <button (click)="AumentarCantidad(producto)" class="btn-addCartDetalle w-100 rounded-0 rounded-end">Agregar al Carrito</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- TIPO DE ENTREGA -->
+          <div class="bg-primar mb-2">
+          <p class="text-dark fw-bold">Tipos de Entrega</p>
+            <div class="d-flex rounded px-3 py-2" style="border: 1px solid rgb(204,204,204)">
+              <div class="col-1 m-auto d-flex text-center">
+                <i class="bi bi-truck fs-2 UpgradeColorIcons"></i>
+              </div>
+              <div class="col-7 m-auto">
+                <span class="fw-bold"> Envío a domicilio </span>
+                <a href="#" class="text-decoration-none">
+                  <!-- {/* <span class="d-block text-start"> Ver disponibilidad<i class="bi bi-chevron-right"></i> </span> */} -->
+                </a>
+              </div>
+              <div class="col-4 m-auto" style="opacity: 100%">
+                <!-- {/* <Link to="/locales">Calcular<i class="bi bi-chevron-right"></i></Link> */} -->
+                <a class="nav-link" data-bs-toggle="modal" disabled data-bs-target="#modalEntregaDomicilioDetalle">Más información<i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+
+            <div class="d-flex rounded px-3 py-2 mt-2" style="border: 1px solid rgb(204,204,204)">
+              <div class="col-1 m-auto d-flex text-center">
+                <i class="bi bi-shop fs-2 UpgradeColorIcons"></i>
+              </div>
+              <div class="col-9  m-auto">
+                <span class="fw-bold">Recoge en nuestras Tiendas</span>
+                <span class="d-block text-start badge rounded-pill bg-warning text-dark" style="width: 3.1rem">Gratis</span>
+              </div>
+              <div class="col-2 m-auto">
+                <a class="nav-link" [routerLink]="['/nuestras-tiendas']">Ver<i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+      <hr>
+      <!-- =====================================ESPECIFICACIONES DEL PRODUCTO========================================= -->
+      <div>
+        <h5 class="fs-4 text-center fw-semibold text-secondary-romario mb-4 mt-4">Detalles del Producto</h5>
+        </div>
+        <div class="tabs">
+          <ul class="nav nav-fill mb-3">
+          <!-- <ul class="nav nav-tabs nav-fill mb-3"> -->
+            <li class="nav-item">
+              <a class="nav-link border-tab-inicial text-dark" style="cursor: pointer;" [ngClass]="{ 'border-tab': selectedTab === 'caracteristicas' }" (click)="setSelectedTab('caracteristicas')" data-toggle="tab" role="tab">Descripción</a>
+            </li>
+            <li class="nav-item" (click)="GetEspecificacionesProducto(producto)" >
+              <a class="nav-link border-tab-inicial text-dark"  style="cursor: pointer;" [ngClass]="{ 'border-tab': selectedTab === 'especificaciones' }" (click)="setSelectedTab('especificaciones')" data-toggle="tab"  role="tab">Especificaciones</a>
+            </li>
+          </ul>
+
+          <div class="tab-content" style="margin-bottom: 5rem">
+            <!-- PÁGINA TAB 1 -->
+            <div class="tab-pane fade" [ngClass]="{ 'show active': selectedTab === 'caracteristicas' }" id="caracteristicas" role="tabpanel">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="col-sm-3 my-4 d-flex w-100">
+                    <p class="mb-0 fs-5" style="color: rgb(15,21,47)">{{ producto.nombre }}</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="fw-bold" style="color: rgb(107,107,106)">CARACTERISTICAS:</p>
+                    <p class="text-muted mb-0">{{ producto.descripcion }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PÁGINA TAB 2 -->
+            <div class="tab-pane fade" [ngClass]="{ 'show active': selectedTab === 'especificaciones' }" id="especificaciones" role="tabpanel">
+              <div class="row">
+                <div class="mb-4">
+                  <div>
+                    <h2></h2>
+
+                    <div *ngIf="especificaciones">
+                      <ul class='list-group list-group-flush'>
+
+                        <li *ngFor="let item of list" class="list-group-item d-flex justify-content-between align-items-center ">
+                          <span class='text-secondary'>{{item.nombre}}</span>
+                          <span>{{ item.descripcion}}</span>
+                        </li>
+
+                      </ul>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <hr>
+          <h5 class="fs-4 text-center fw-semibold text-secondary-romario mb-4 mt-4"> Equipos Similares </h5>
+          <div
+          #product
+          class="d-flex gap-4"
+        >
+          <div *ngFor="let productossimilares of productosSimilares">
+            <div #{{productossimilares._id}} class="d-block">
+              @defer (on viewport({{productossimilares._id}}); prefetch on idle) {
+              <div class="card shadow-sm p-2 contenedor-producto">
+                <a
+                  [routerLink]="['DetailProduct/', productossimilares._id]"
+                  class="text-decoration-none link-producto mb-2"
+                >
+                  <figure class="figura">
+                    <img
+                      [src]="
+                        'https://imagenes.upgrade.com.pe/ImagenesEcommerce/' +
+                        (productossimilares.urlimagen || '')
+                      "
+                      class="card-img-top img-product"
+                    />
+                  </figure>
+                  <h6
+                    class="fw-bold text-dark"
+                    style="margin-top: 0.7rem; margin-bottom: 0.1rem"
+                  >
+                    {{ productossimilares.marca.nombre }}
+                  </h6>
+                  <span
+                    class="fw-bold d-none d-lg-block"
+                    style="
+                      font-size: 0.8rem;
+                      color: rgba(57, 60, 60, 0.709);
+                      margin-bottom: 0.3rem;
+                    "
+                  >
+                    {{
+                      productossimilares.nombre.length > 13
+                        ? productossimilares.nombre.slice(0, 60) + "..."
+                        : productossimilares.nombre
+                    }}
+                  </span>
+
+                  <span
+                    class="fw-bold d-block d-lg-none"
+                    style="
+                      font-size: 0.8rem;
+                      color: rgba(57, 60, 60, 0.709);
+                      margin-bottom: 0.3rem;
+                    "
+                  >
+                    {{
+                      productossimilares.nombre.length > 13
+                        ? productossimilares.nombre.slice(0, 40) + "..."
+                        : productossimilares.nombre
+                    }}
+                  </span>
+
+                  @if(productossimilares.precioPromocionEcommerce !== 0){
+                  <div>
+                    @if(productossimilares.precioEcommerce !== 0){
+                    <span
+                      class="d-block fw-precio-normal m-0 text-decoration-line-through"
+                      style="font-size: 1rem; color: rgba(57, 60, 60, 0.709)"
+                    >
+                      S/ {{ productossimilares.precioEcommerce }}
+                    </span>
+                    } @if(productossimilares.precioEcommerce === 0){
+                    <span
+                      class="fw-bold m-0 text-decoration-line-through"
+                      style="font-size: 1rem; color: rgba(57, 60, 60, 0.709)"
+                    >
+                      S/ {{ productossimilares.precioPromocionEcommerce }}
+                    </span>
+                    }
+                  </div>
+                  } @if(productossimilares.precioPromocionEcommerce === 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0"></span>
+                  } @else if(productossimilares.precioPromocionEcommerce !== 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0">
+                    S/ {{ productossimilares.precioPromocionEcommerce }}
+                  </span>
+                  }
+
+
+                  <br />
+                  @if(productossimilares.precioPromocionEcommerce === 0){
+                  <span class="UpgradeColorPrecio fw-bold m-0">
+                    S/ {{ productossimilares.precioEcommerce }}
+                  </span>
+                  }
+                </a>
+
+              </div>
+              }
+            </div>
+          </div>
+      </div> -->
+
+    </div>
+
+  <div class="w-100 m-auto py-4" style="background-color: rgba(13,69,117,0.07)">
+    <div class="container">
+      <div class="row text-center justify-content-center UpgradeColorIcons fw-bold">
+        <div class="col-lg-3 col-6 d-flex align-items-center justify-content-center"> <!-- Añade align-items-center y justify-content-center -->
+          <a class="nav-link">
+            <div class="text-center">    <!-- Agrega text-center para centrar el contenido horizontalmente  -->
+              <i class="bi bi-shop fs-4 me-2"></i>
+              <p style="font-size: .8rem">¿Cómo comprar en Upgrade?</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+          <a [routerLink]="['/nuestras-tiendas']" class="nav-link">
+            <div class="text-center">
+              <i class="bi bi-building fs-4 me-2"></i>
+              <p style="font-size: .8rem">Nuestras Tiendas</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+          <a class="nav-link cursor-pointer" data-bs-toggle="modal" data-bs-target="#modalPagoMetodos" >
+            <div class="text-center">
+              <i class="bi bi-credit-card fs-4 me-2" ></i>
+              <p style="font-size: .8rem">Paga con tu tarjeta</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6 d-flex align-items-center justify-content-center">
+
+          <a
+            style="bottom: 20; right: 20; z-index: 10"
+            class="nav-link"
+            href="https://wa.link/hixgbj"
+            target="_blank"
+          >
+            <div class="text-center">
+              <i class="bi bi-whatsapp fs-4 me-2"></i>
+              <p style="font-size: .8rem">Compra por WhatsApp</p>
+            </div>
+            </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALES  -->
+
+  <div class="modal fade" id="modalEntregaDomicilioDetalle" tabindex="-1" aria-labelledby="modalEntregaDomicilioDetalleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h1 class="modal-title fs-5" id="modalEntregaDomicilioDetalleLabel"> Informacion sobre el despacho a Domicilio </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+          <div class="card border-0">
+          <p class="">
+          El plazo de entrega de los productos depende de su ubicación y dirección registrada. En promedio, la entrega toma de 2 a 5 días. También puede optar por recoger los productos en nuestras
+          tiendas. Para obtener más detalles, puede consultar con nosotros dicha información al realizar su compra.
+          </p>
+            <div class="">
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalPagoMetodos" tabindex="-1" aria-labelledby="modalPagoMetodosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header m-auto border-0">
+          <p class="fw-semibold">Se aceptan los siguientes medios de pago</p>
+          <!-- {/* <h1 class="modal-title fs-5" id="modalPagoMetodosLabel">Paga con estas tarjetas</h1> */} -->
+          <!-- {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> */} -->
+        </div>
+        <div class="modal-body border-0">
+          <div class="text-center card border-0">
+           <!-- <p class="fw-semibold">Aceptamos estos medios de Pago</p> -->
+            <div class="d-flex justify-content-center gap-4">
+            <svg width="50" style="enable-background: new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xmlSpace="preserve" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><g id="形状_1_3_" style="enable-background: new"><g id="形状_1"><g>
+              <path d="M211.328,184.445l-23.465,144.208h37.542l23.468-144.208     H211.328z M156.276,184.445l-35.794,99.185l-4.234-21.358l0.003,0.007l-0.933-4.787c-4.332-9.336-14.365-27.08-33.31-42.223     c-5.601-4.476-11.247-8.296-16.705-11.559l32.531,124.943h39.116l59.733-144.208H156.276z M302.797,224.48     c0-16.304,36.563-14.209,52.629-5.356l5.357-30.972c0,0-16.534-6.288-33.768-6.288c-18.632,0-62.875,8.148-62.875,47.739     c0,37.26,51.928,37.723,51.928,57.285c0,19.562-46.574,16.066-61.944,3.726l-5.586,32.373c0,0,16.763,8.148,42.382,8.148     c25.616,0,64.272-13.271,64.272-49.37C355.192,244.272,302.797,240.78,302.797,224.48z M455.997,184.445h-30.185     c-13.938,0-17.332,10.747-17.332,10.747l-55.988,133.461h39.131l7.828-21.419h47.728l4.403,21.419h34.472L455.997,184.445z      M410.27,277.641l19.728-53.966l11.098,53.966H410.27z" style="fill-rule: evenodd; clip-rule: evenodd; fill: #005BAC" /></g></g></g><g id="形状_1_2_" style="enable-background: new"><g id="形状_1_1_"><g>
+                <path d="M104.132,198.022c0,0-1.554-13.015-18.144-13.015H25.715     l-0.706,2.446c0,0,28.972,5.906,56.767,28.033c26.562,21.148,35.227,47.51,35.227,47.51L104.132,198.022z" style="fill-rule: evenodd; clip-rule: evenodd; fill: #F6AC1D" /></g></g></g></svg>
+            <img width="50" src="https://seeklogo.com/images/Y/yape-logo-3E473EE7E5-seeklogo.com.png" class="rounded">
+            <img width="50" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

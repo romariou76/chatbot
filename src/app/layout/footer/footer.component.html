@@ -1,0 +1,324 @@
+<div #footer style="font-size: 0.8rem" >
+  @defer(on viewport(footer); prefetch on idle){
+  <footer
+    class="text-center text-lg-start text-white bg-upgrade"
+  >
+    <div class="container p-2">
+      <div class="row my-4">
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-2">
+            INFORMACIÓN PARA EL CLIENTE
+          </h5>
+
+          <ul class="list-unstyled">
+            <!-- <li class="mb-0">
+              <p class="text-white text-decoration-none">
+                <i class="fas fa-paw "></i>¿Quiénes somos?
+              </p>
+            </li> -->
+            <li class="mb-0">
+              <p class="text-warnin text-decoration-none">
+                <i class="fas fa-paw"></i>¿Cómo Comprar?
+              </p>
+            </li>
+
+            <li class="mb-0">
+              <p class="text-warnin text-decoration-none">
+                <i class="fas fa-paw"></i>Atención al Cliente
+              </p>
+            </li>
+            <li class="mb-0">
+              <p class="text-warnin text-decoration-none">
+                <i class="fas fa-paw"></i>Consulta Con Un Experto
+              </p>
+            </li>
+            <li class="mb-0">
+
+            </li>
+
+            <!-- <li class="mb-0">
+              <p class="text-white text-decoration-none">
+                <i class="fas fa-paw"></i>Consultar Comprobante
+                Electrónico
+              </p>
+            </li> -->
+            <li class="mb-0">
+              <p class="text-white text-decoration-none">
+                <i class="fas fa-paw"></i>Servicio Técnico
+              </p>
+            </li>
+            <!-- <li class="mb-0">
+              <a [routerLink]="['claimbook']">
+                <p class="text-white text-decoration-none">
+                  <i class="fas fa-paw"></i>Libro De Reclamaciones
+                </p>
+              </a>
+            </li> -->
+            <li class="mb-0">
+              <p class="text-white text-decoration-none">
+                <i class="fas fa-paw"></i>Contáctanos
+              </p>
+            </li>
+            <li class="mb-0">
+              <a [routerLink] = "['nuestras-tiendas']" class="text-decoration-none">
+                <p class="text-white text-decoration-none">
+                  <i class="bi bi-paw"></i>Nuestras Tiendas
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Columna-->
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-2">NUESTRAS TIENDAS FÍSICAS</h5>
+
+          <ul class="list-unstyled">
+            <a [routerLink]="['nuestras-tiendas']" class="text-decoration-none">
+              <li class="mb-0">
+                <p class="text-white text-decoration-none">
+                  Arequipa
+                </p>
+              </li>
+            </a>
+            <a [routerLink]="['nuestras-tiendas']" class="text-decoration-none">
+              <li class="mb-0">
+                <p class="text-white text-decoration-none">
+                  Cusco
+                </p>
+              </li>
+            </a>
+            <li class="mt-4">
+              <h5 class="text-uppercase mb-2">GESTIÓN DE CUENTA</h5>
+            </li>
+
+            <a *ngIf="tokenExiste" [routerLink] = "['perfil/mis-datos']" class="text-decoration-none">
+              <li class="mb-0">
+                <p class="text-white text-decoration-none">
+                  Mi Cuenta
+                </p>
+              </li>
+            </a>
+
+            <a *ngIf="tokenExiste" [routerLink] = "['register']" class="text-decoration-none">
+              <li class="mb-0">
+                <p class="text-white text-decoration-none">
+
+                </p>
+              </li>
+            </a>
+
+            <a *ngIf="!tokenExiste" [routerLink] = "['register']" class="text-decoration-none">
+              <li class="mb-0">
+                <p class="text-white text-decoration-none">
+                  Registrate
+                </p>
+              </li>
+            </a>
+
+          </ul>
+        </div>
+
+        <!-- {/* column */} -->
+        <!-- <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-2">ENVÍO A PROVINCIAS</h5>
+
+          <div class="row">
+            <div class="col-lg-6 col-sm-6 col-6">
+              <ul class="list-unstyled">
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Amazonas
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Áncash
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Apurímac
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Arequipa
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Ayacucho
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Cajamarca
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Cusco
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Huancavelica
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Huánuco
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Ica
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Junín
+                  </p>
+                </li>
+
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-6">
+              <ul class="list-unstyled">
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    La Libertad
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Lambayeque
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Lima-Provincias
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Loreto
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Madre De Dios
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Moquegua
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Pasco
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Piura
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Puno
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    San Martín
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Tacna
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Tumbes
+                  </p>
+                </li>
+                <li class="mb-0">
+                  <p class="text-white text-decoration-none">
+                    Ucayali
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <ul class="list-unstyled">
+            <!-- <h5 class="text-uppercase mb-4">LIBRO DE RECLAMACIONES</h5> -->
+            <h5 class="text-uppercase mb-4 text-uppercase">Términos y Condiciones</h5>
+            <!-- <a [routerLink] = "['reclamaciones']">
+              <img
+                src=""
+                class="img-fluid"
+                alt="LogoReclamaciones"
+                >
+            </a> -->
+            <!-- <h5 class="text-uppercase mb-2 mt-4">LEGAL</h5> -->
+            <li class="mb-2">
+              <p class="text-white text-decoration-none">
+                Upgrade 2023
+              </p>
+            </li>
+            <li class="mb-2">
+            <label>
+              <!-- <div class="d-flex align-items-center gap-2">
+                <input type="checkbox" onClick={handleClick} defaultChecked={isChecked} />
+                Acepto los<a href="terminos-condiciones" class="text-decoration-none fw-bold" style="color:rgb(50,151,907)">Términos y Condiciones</a>
+              </div> -->
+              <div class="d-flex align-items-center gap-2">
+                <a [routerLink] = "['terminos-condiciones']" class="text-decoration-none fw-bold" style="color:rgb(50,151,907)">Términos y Condiciones
+                  <!-- <h3 class="black-friday text-white mt-3"> Black Friday! </h3> -->
+                    </a>
+              </div>
+            </label>
+            </li>
+          </ul>
+
+          <p class="fw-bold">Síguenos</p>
+          <ul class="list-unstyled d-flex flex-row justify-content-center justify-content-lg-start">
+            <li>
+              <a class="text-white px-0" href="https://www.facebook.com/tecnologiaupgrade" target="_blank">
+                <i class="bi bi-facebook fs-5"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white px-2" href="https://www.instagram.com/grupoupgradeperu/" target="_blank">
+                <i class="bi bi-instagram fs-5"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mb-4">
+        <em style="font-size: .8rem">
+
+        Para garantizar tu seguridad, es importante que verifiques en tu navegador que estás accediendo a la versión oficial del sitio.. Utiliza exclusivamente la dirección oficial <a href="https://upgrade.com.pe" class="text-white">https://upgrade.com.pe</a> de Grupo Upgrade para prevenir riesgos.
+        </em>
+      </div>
+
+    </div>
+
+    <div class="d-flex justify-content-around fs-6 fw-bold text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      <div class="container px-5"><p class="m-0 text-center text-white small" style="font-weight: 400">Copyright © 2023 Copyright Grupo Upgrade</p></div>
+      <div class="container px-5"><p class="m-0 text-center text-white small" style="font-weight: 400">Designed &amp; Developed by Consultancy</p></div>
+    </div>
+
+  </footer>
+}
+</div>

@@ -1,0 +1,68 @@
+
+<div class="col-12 card mt-3">
+  <div class="card-body">
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+      <div class="accordion-item border-top border-bottom border-0">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+          <button
+            class="accordion-button collapsed text-primary-romario text-decoration-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne"
+          >
+            Categorias
+          </button>
+        </h2>
+        <div
+          id="panelsStayOpen-collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="panelsStayOpen-headingOne"
+        >
+          <div class="accordion-body" style="margin-left: -1.8rem">
+            <div class="form-check mb-1">
+              <i class="bi bi-list mx-1 text-primary"></i>
+              <a
+                (click)="productosCategoriaSelect('TODOS')"
+                class="form-check-label text-secondary-romario text-decoration-none"
+                style="cursor: pointer"
+              >
+                Todos
+              </a>
+            </div>
+            <div class="form-check mb-1">
+              <i class="bi bi-laptop mx-1 text-success"></i>
+              <a
+                (click)="productosCategoriaSelect('NOTEBOOKS')"
+                class="form-check-label text-secondary-romario text-decoration-none"
+                style="cursor: pointer"
+              >
+                NOTEBOOKS
+              </a>
+            </div>
+            <div class="form-check mb-1">
+              <i class="bi bi-display mx-1 text-danger"></i>
+              <a
+                (click)="productosCategoriaSelect('MONITORES')"
+                class="form-check-label text-secondary-romario text-decoration-none"
+                style="cursor: pointer"
+              >
+                Monitores
+              </a>
+            </div>
+            <div class="form-check mb-1">
+              <i class="bi bi-printer mx-1 text-danger"></i>
+              <a
+                (click)="productosCategoriaSelect('IMPRESORAS')"
+                class="form-check-label text-secondary-romario text-decoration-none"
+                style="cursor: pointer"
+              >
+                Impresoras
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>            </div>
+    </div>
+  </div>

@@ -1,0 +1,74 @@
+<section class="my-5">
+
+  <div class="d-flex my-5 align-items-center">
+    <hr class="custom-line flex-grow-1">
+    <h3 class="mx-3">¡OFERTAS DEL MES!</h3>
+    <hr class="custom-line flex-grow-1">
+  </div>
+
+  <div #obj1 class="row p-0 m-0">
+    @defer(on viewport(obj1); prefetch on idle){
+    <div class="col-md-6 col-12 bg-daner">
+      <a [routerLink]="['tienda/DetailProduct/655b991146506fac25cfa670']">
+        <img class="img-fluid p-0 mb-4 rounded-upgrade border" src="https://imagenes.upgrade.com.pe/Ofertas/1.png">
+      </a>
+    </div>
+    <div class="col-md-3 col-6 bg-primar d-flex justify-content-center">
+      <a [routerLink]="['tienda/DetailProduct/6420635a635c541fadd88c8e']">
+        <img class="img-fluid p-0 rounded-upgrade border" src="https://imagenes.upgrade.com.pe/Ofertas/2.png">
+      </a>
+    </div>
+    <div class="col-md-3 col-6 bg-succes d-flex justify-content-center">
+      <a [routerLink]="['tienda/DetailProduct/64205ede635c541fadd88736']">
+        <img class="img-fluid p-0 rounded-upgrade border" src="https://imagenes.upgrade.com.pe/Ofertas/3.png">
+      </a>
+    </div>
+    }
+  </div>
+
+  <br>
+
+  <div #obj2 class="row">
+    @defer(on viewport(obj2); prefetch on idle){
+    <div class="col-lg-5 col-md-5 col-12 py-4 py-xl-0 bg-primar d-flex justify-content-center">
+      <a [routerLink]="['tienda/DetailProduct/653167afe96c184e63ee1bd9']">
+        <img class="img-fluid rounded-upgrade border" src="https://imagenes.upgrade.com.pe/Ofertas/4.png">
+      </a>
+    </div>
+    <div class="col-lg-7 col-md-7 col-12 bg-succes d-flex justify-content-center">
+      <img class="img-fluid rounded-upgrade border" src="https://imagenes.upgrade.com.pe/Ofertas/5.png">
+    </div>
+    }
+  </div>
+
+  <!-- <div class="d-flex mt-5 pt-5 align-items-center">
+      <hr class="custom-line flex-grow-1">
+      <h3 class="mx-3">NUESTROS CLIENTES</h3>
+      <hr class="custom-line flex-grow-1">
+    </div>
+
+    <div class="row mb-5 mt-5 align-items-center text-center row-cols-2 row-cols-xl-5 row-cols-lg-4 row-cols-md-4 row-cols-sm-4 row-cols-xs-3">
+      <div class="col p-3">
+      <img class="img-fluid"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAeYAAABoCAMAAAATgKPhAAAAflBMVEX+/v4AAAD////n5+dlZWXb29t8fHxwcHDz8/N5eXmenp6RkZHh4eH6+vre3t4TExNqamq6uro/Pz9JSUnu7u6CgoLKysrR0dEuLi6tra1dXV3T09OlpaU0NDS3t7cYGBiXl5dQUFAoKCiKioogICA+Pj7CwsJOTk5GRkYUFBQjz1xYAAAMFUlEQVR4nO1d6VrcOBC0xTVDOBYYIBAIDIRN9v1fcH2PLXdXtWwR/NlTf5bM2passqS+laSnmwMPq5M0Td/LnzdP6QAc9p7pN7GtrrxTL9kMaRi2vTnpXPjIOjkMZ/cPj9a+Puuvb8HF3et3W0PJm+vhLPv9svnXc8gYV9j0H9rFfX3lkX7NgHZznOhPPO5ceMg6ORybf2x9PR/f1J2J6OTKJR5c/jH+rH/eMWLHt94z/SY+6kuPtEtH0Ky26tNMejkczv20dHUdoQfOrQ0tJb1RcXfZz88uf0CGivUwnJPutwZhnjRXo8jwHqMH/iIlIukNdLFK37vEna/XJ5vsvwehA/3AWE5emmvnSnPirnhXb6P0wLnftKUk/dNtq5hpj/ksfk3LZcXytbTx3TGaX3cXz5bmxHHhNcpszlri0mqSpp3duRzdA1ffe5H9tQob5zvGcvt586U5cd9YV48j9cC9s5Yyml+SVmvFTMsXk2pnL+b1acgwb6n81ZYZZkxzwoWjTaTpfMYaymhOX3eNlXN4lU3hi+qCbG665FfAMF+wydzp06xpptLrY6zpfEMaymlufVTFB3iaz+BtdcFzttNaxAk+ynUT2/blc6Y5e4c/pLNsg7M2xPS3pDMyxRx+yYnd6QO53OyuzaO8YpO5q2nMmuZMWyHGi0smrlrbIYNS0NwstMVMy0Uy97a7JGfdbCN5ZSy77ovPm+ZM3LzEvaWWJGM7RAwoab4uGytmWv63e/B64g6Ng5wwmh+618+cZm51OIgznX/gVkqaS6WqnGk/cpmrc02AjeQnY9lfXeZOc+KOcHcjSWHt5VdAReiLq+dw/vI7je+9Hjh3axniD2oZ8XXJ2dNMzZ7/xpnOWOmt5+1pPYd3lpEMN67w3R05vskXoJaRnr1m/jQzMfiF7XO2RrAlrFmeV66wpeT2N9e40c7Ku2+cyXbHFyB34t+yAJrZTIsjhWEdvaF57ZL17e1xbhnZZH/cPpa/uZ/Ht7frfIo7biM5Y5O5v08tgWYmB0eRwty/qImdsFU5+JPKA+leSofi7lf4nBzURCtYC5ZBM54iv+P4I1ETO5q9xtxV+uT9wixq1DIifCiLoJmZEfuhHUPaQP6LlurkiXzu0BObmW52Si0jwje9EJodtpLEkMKg/6JF839dWl1POXIwwona7UQhbhk0M300SnwBski3DSF0OkKhPdgyUmApNBPBhrn1TG086M/v2Lvo5gqW/w8qf4kf9FJoJrawf2LQDMI/OjSzSEPPCNrBD3avbC6dJs2Dw2nVBxLHPxLCbC0kklWiQZc4ddDrB6nrAp0aivNjkjS789VAqG9DaAYymDvftBpA8SbAj9ilmQX4ONVCzlR8TUyfJs2vyrMZ1EcSmpEI5m12YNUE6rm3DDM7umaHp6KiJgZOk+ag4LcW1C2W0AwkMH8c0Maqf54ezb+oVrQVH0MD8DX7wJ7mtEx+MI8cGGrdXewLVVSpEkXGJ7rYa+3vaU5x/kJvXgVdXKMnO1OlShDnXugaoI7bnuYUjnnfVvEnZOrX6NFMlSrBRkJ3dF2j29OMlWZhuwXSrjpofU2YehN7yQTo+ypv0dNz9jTjYAxBeEb+ac2o2qeZucX6NhKqbYN33NMMxV5RFUY0K9Y2wa5Fl2DPRkINdSiwYU8znp2SYQvOfrnqgEAzV6q6odbUMoJi3vY0w71WFGqQxVGJ5ZKs1FQ96vDGsjdxWYs9zcjyqBiXkWQuS7uiM4IqVe1VmFpGgH9sTzN24Co5WGgeyr4DkWYW1NXuNC9NAAdmTzOyail3IaevvEXKJFClqglVfAspTSBg8TRDG7Xm3we6TRGr2YNMM/VUNTvACMsI7vBSaIYeJy2CDHq0pCIJypJK0yeqOXpDlSnd1V1g6TS/Ba+/BZB/WmpKoZkpVfWHRksTkOCYxdMcLk0VgNEmQqC1JiBRpapIDAosTSBg6TSH60YFUBqTlLOlysFUqcq1YVYihWdqLJxmSBfKWgMjL4XQqjRTpeoHT/LySxMIWDjNSIKFg4fiAgR5SNdqqVL1yEsT8CzKhdOMvBZQrHlBNPfj7nSaWRaru6CWEUNO9LJpRoZikqiBAqb7qjOwUVGlispftPjc0mkGKyaxHkLpt99/8DBae5PAUEpy4TTDeB8mvSIjaW/k0TfDlCoCU/WhRdMMo/dYhUDo8vBvhksDcz5BsDzZEtOkeWg4virPyDQHhfr5QAbI3lIAaR6Vj2mrDDhNmjdHF0NwpEYIiDSHba89hGzseKMfURXDWOdzkjT/pVQ5IOMaLA5BoX+Y5sfAt2m1Y6zaO02ao0NSgmGon2HHg/d77RGx/eO6j48tS3JN7FLMUmgW5GZU3tR0TgkM/fvoXEpoVkDLfZsr6i+FZsGEgEL9TLTAvb1rgBxGM7N/GWs/psuhub+FQUnZdL5RgHtrGM00AN982s0yaJYCBKDey2pzlYB6d8dqMYhmXrTRfHbVImh23k5ZAAlQxoMTr82hJ4NopgH49pPolkGzYG5Bjl6zeQapzp3xG0IzL01gP1dyCTSLJgS074nBmRKgh6sd+jeE5oCzASkWQLMYuffdvN5CoKe05aMBNNOCBiHPnD/NzVFP5kF0V+/fbHhH22c7ZSOcZp5JF2L4nz3NitIBLQ8RrKtJd1ENp5mVi7WKiSXmTrNbiftsrHPGYNOt4J1gmnlpAoudrsHMaXbnsjQa54AL1vgu9C+YZlq0UdyKVMybZqfEqV9GOd+Ctr7Ta0Np5kUb5RfTMGuanRZAE+fgZt58U5MxlOZRpQkEzJtmbf9ixuJY7TfCcCDN9GBpw8EntheeAc2qyoGq+kXtQCPlB9I8rjSBgBnTrI8FdfBF68K2ajGMZppAZzqUrI350gwicFF+WpwjYOuH1WbWIJq5ZcQQgN/FbGkG7htYCehhVDit/7R62gXRTEsTmN3MDeZKM6oQhav6RTmtqHlcJQSG0EyPxcJH24iYJ80OhuwhT/MZLQgS1pGqHyE0U8sIK00gYJo0j7AkF7evpPofNWDg7bsh0C4EleYTQDNVA8wBYC3oGuRXhuMn5xA04Rd+7ywWgHkAg1BF2AbQzHVmHkLeA6A59rEiQTlUlxC0lANI7Ib5cblxKapWXTmSAmiOkc4cQPPg1Af9gV2j1IhUObp/gmA4HqdnCIO3o+xJAM3UAzmE5qhyJYFnYR6TEUlDK/Sx4FG39OTcEJTq+1fTjFIPIsM/XWlU4isNYdbUZksMfVTVuWD4q2lGMaiR4Wv1o2j+RcUwRdi2ZMTEVZ1zwfiraaaVbOLBH/hxaeysJJqTQ+phflvtqo+rOudi/5fTTCvIxUKveyOrFdATbsVgKaY0l4irOj9PgOb0/m955fxqWWOLUtDad1J4ti2APq7q/DQFmuN+unrvem7BsTQ/U0dOP6rAWFQGVf0KRr6sTIDm/5ixIcq79qfW6BIz/PiH3sGp1qIysVXnCdCcvsVUIJS+Cc7f8ZWEaOW0npsKVXlqp6quI1qF8pefAs3p82fzLEaoRSgYRY2e3k5hTzw/XofhBJ81Nwma0+vP5Vm2VUSgmWcAdw1vUGke4BFoAYrwx9OgORNNPpFnxWEUo/xbWNQUOjJ1iBe3A0Tz/URoTn9/Hs9agkCUKn/0eID2QoLiMoZ4cTtA5acOpkJzuv0sntVwnSg08zONW7Y3UG4kKI1UBDjD0Z1Nhua8Bhl+/jDoQVlxanbycyB2+aeIZnqOAIUu30yJ5uxz/ASeQRRipNKsAUZPRLO5WosKXSefFM3ZxIjOs9toRznFq8BL842aiarTHJYtLEO3sE2L5twogJsIhVvpLEej+dps9AQ08+MiOFR7+cRojp0p6FYooytaPW1u9KxUYkCzvSiPDlV1DqKZBuOPp5mHFYbAnUOLQ7yy6Vajp0rzaKW5gCr1B9HMts4YNGdfZDSitUoBNSJWxzcaPXWaxyrNJbTPLYjm9BhTEIXmbN2Ow7NzB2QhjEgzj/QsjJ4azeOV5hKa6hxGc04BQhSa04/7YXG7PqhQc6jfG3zWxRPrTTHON9r/Ha80l1gpzw+xgmW43RwAgOywIDy/3l2gdjiOro55M4/qy2xQboyMO9al3N99rbS42Qa3J+NUafzufzTs0Kx44SmSAAAAAElFTkSuQmCC">
+      </div>
+      <div class="col p-3">
+      <img class="img-fluid"  src="https://www.laiberica.com.pe/assets/img/logo-laiberica-actual.png">
+
+      </div>
+      <div class="col p-3">
+      <img class="img-fluid"  src="https://3.bp.blogspot.com/-2KzH9Yengto/VgbtWILSTZI/AAAAAAAAENY/NCIQTO35LBs/s280/descarga.png">
+
+      </div>
+      <div class="col p-3">
+      <img class="img-fluid"  src="https://3.files.edl.io/0f59/22/05/18/181508-7ab9309f-7f73-4af4-b83d-0c1fe97f901e.png">
+
+      </div>
+      <div class="col p-3">
+      <img class="img-fluid"  src="https://presto.com.pe/wp-content/uploads/2021/03/logo_footer_presto.png">
+
+      </div>
+
+    </div> -->
+
+
+</section>

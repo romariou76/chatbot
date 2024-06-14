@@ -1,0 +1,84 @@
+<div class="mb-2 d-flex gap-2">
+  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" width="30">
+  <img src="https://www.svgrepo.com/show/328141/mastercard.svg" width="30">
+</div>
+ <form [formGroup]="tokentarjeta" (ngSubmit)="RealizarPago()">
+    <div class="row">
+      <div class="col-md-12">
+        <label for="inputPassword5" class="form-label">
+          Número de tarjeta
+        </label>
+        <input
+            type="text"
+            class="form-control input-pasarela border-0 border-bottom mb-3"
+            minlength="13" maxlength="16"
+            formControlName="tarjeta"
+            name="tarjeta"
+            placeholder="0000 0000 0000 0000"
+
+        >
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6 col-6">
+              <label for="inputPassword5" class="form-label">
+                Mes de Expiración
+              </label>
+              <input
+                type="text"
+                minlength="1" maxlength="2"
+                class="form-control input-pasarela border-0 border-bottom mb-3"
+                placeholder="MM"
+                formControlName="month"
+                name="month"
+              >
+          </div>
+          <div class="col-md-6 col-6">
+            <label for="inputPassword5" class="form-label">
+              Año de Expiración
+            </label>
+            <input
+              type="text"
+              minlength="4" maxlength="4"
+              class="form-control input-pasarela border-0 border-bottom mb-3"
+              placeholder="AAAA"
+              formControlName="year"
+              name="year"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword5" class="form-label">
+          CVV
+        </label>
+        <input
+          type="text"
+          minlength="3" maxlength="3"
+          class="form-control input-pasarela border-0 border-bottom mb-3"
+          placeholder="cvv"
+          formControlName="cvv"
+          name="cvv"
+        >
+      </div>
+
+      <div class="col-md-12 mt-4">
+        @if(this.usuarioservice.tokenexiste() == true){
+          @if(this.cart.carro().length != 0){
+            <button type='submit' class="btn-upgrade w-100"
+            [disabled]="!tokentarjeta.valid || !botonSeguridad">Realizar Pago</button>
+          } @else {
+          <p class="me-2 fs-5 fw-bold">
+            <i class="bi me-1 bi-exclamation-triangle-fill"></i>
+            ¡Tu carrito esta vacio!</p>
+        <a class="text-white btn btn-upgrade cursor-pointer border-tab" [routerLink]="['/tienda']"
+          style="color: #0F152F">
+            Volver a la Tienda
+          <i class="bi bi-shop me-2 text-white"></i>
+        </a>
+      }
+
+        }
+      </div>
+    </div>
+  </form>

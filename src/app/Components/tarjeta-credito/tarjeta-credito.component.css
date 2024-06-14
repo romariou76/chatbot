@@ -1,0 +1,15 @@
+.input-pasarela:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.input-pasarela{
+  border-radius: 0%;
+  fill: black !important;
+  color: black !important;
+}
+
+.infos input[type="date"] {
+  width: 100%;
+}
+

@@ -1,0 +1,67 @@
+<section class="d-flex justify-content-center">
+  <div class="">
+    <p class="">Puedes comprar como invitado si no tienes cuenta en upgrade.com.pe</p>
+    <form>
+      <div class="row">
+        <div class="mb-3 col-6">
+          <label for="" class="form-label">Nombre</label>
+          <input [(ngModel)]="nombre" type="text" name="nombre" class="form-control">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label for="" class="form-label">Apellidos</label>
+          <input [(ngModel)]="apellidos" type="text" name="apellidos" class="form-control">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label for="" class="form-label"> DNI </label>
+          <input [(ngModel)]="documentoidentidad" type="text" name="dni" class="form-control">
+        </div>
+
+        <div class="mb-3 col-6">
+          <label for="" class="form-label"> Correo Electronico </label>
+          <input [(ngModel)]="email" name="email" type="email  " class="form-control">
+        </div>
+
+        <div class="col-6 col-lg-6 mb-3">
+          <label class="form-label">
+            Teléfono
+          </label>
+          <input type="text" [(ngModel)]="telefono" name="telefono" maxlength="9" class="form-control" placeholder="" />
+        </div>
+
+        <div class="mb-3 form-check ms-3">
+          <input type="checkbox" class="form-check-input cursor-pointer" [(ngModel)]="aceptarTerminos" id="terminosCheckbox"
+            name="terminosCheckbox">
+          <label class="form-check-label me-1 " for="terminosCheckbox">
+            He leído y acepto los
+            </label>
+            <label>
+              <a class="text-upgrade text-decoration-underline" [routerLink]="['/terminos-condiciones']">
+                terminos y condiciones
+              </a>
+            </label>
+        </div>
+
+        <!-- <button class="btn btn-upgrade" (click)="crearCargoInvitado()">Ingresar</button> -->
+        <div>
+          <button [disabled]="loading" class="btn btn-primary w-100 fw-bold" (click)="RegistrarInvitado()">
+            <div class="d-flex justify-content-center align-items-center">
+              <div>
+                {{statusButton}}
+              </div>
+              @if (loading){
+              <div class="spinner-border spinner-border-sm ms-2" role="status">
+              </div>
+              } @else {
+
+              }
+            </div>
+          </button>
+          <div id="emailHelp" class="form-text">Es importante que ingrese sus datos reales para la compra </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>

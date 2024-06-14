@@ -1,0 +1,177 @@
+
+<section >
+  <div>
+
+    <div class="nav-2 py-1">
+      <span>Mantenimiento preventivo de por vida</span>
+    </div>
+
+    <div #carouselHome id="CarouselHome" class="carousel-container carousel slide lg-my-0 carousel-fade" data-bs-ride="carousel">
+      @defer(on viewport(carouselHome); prefetch on idle){
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#CarouselHome" data-bs-slide-to="0" class="active bg-upgrade"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#CarouselHome" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#CarouselHome" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#CarouselHome" data-bs-slide-to="3" aria-label="Slide 4"></button>
+
+      </div>
+      <div class="imagenes carousel-container carousel-inner">
+        <div #imagen1 class="carousel-item active">
+          @defer (on viewport(imagen1); prefetch on idle){
+          <img src="https://imagenes.upgrade.com.pe/Banners/PORTADA-1.webp"
+            class="d-block img-fluid w-100" alt="Slide 1" />
+          }
+        </div>
+        <div #imagen2 class="carousel-item">
+          @defer (on viewport(imagen2); prefetch on idle){
+          <img src="https://imagenes.upgrade.com.pe/Banners/PORTADA-2.webp" class="d-block img-fluid w-100"
+            alt="Slide 2" />
+          }
+        </div>
+        <div #imagen3 class="carousel-item">
+          @defer (on viewport(imagen3); prefetch on idle){
+          <img src="https://imagenes.upgrade.com.pe/Banners/PORTADA-3.webp"
+            class="d-block img-fluid w-100" alt="Slide 3" />
+          }
+        </div>
+        <div #imagen3 class="carousel-item">
+          @defer (on viewport(imagen3); prefetch on idle){
+          <img src="https://imagenes.upgrade.com.pe/Banners/PORTADA-4.webp"
+            class="d-block img-fluid w-100" alt="Slide 3" />
+          }
+        </div>
+      </div>
+      <button class="btn-c carousel-control-prev" type="button" data-bs-target="#CarouselHome" data-bs-slide="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="45" viewBox="0 0 46 45" fill="none">
+          <circle cx="22.9827" cy="22.677" r="22.2488" transform="rotate(180 22.9827 22.677)" fill="#A3A3A3"
+            fill-opacity="0.78" />
+          <path d="M28.5973 11.6479L17.3677 22.677L28.5973 33.7061" stroke="white" stroke-width="4.39381"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="btn-c carousel-control-next" type="button" data-bs-target="#CarouselHome" data-bs-slide="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="45" viewBox="0 0 46 45" fill="none">
+          <circle class="circle" cx="22.9832" cy="22.3059" r="22.2488" fill="#A3A3A3" fill-opacity="0.78" />
+          <path d="M17.3685 33.335L28.5981 22.3059L17.3685 11.2769" stroke="white" stroke-width="4.39381"
+            stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      }
+    </div>
+
+    <div class="container">
+
+      <!-- <app-productos-recomendados></app-productos-recomendados> -->
+      <!-- <app-ofertas-secondary></app-ofertas-secondary> -->
+      <span #ofertasnovedades>
+        @defer (on viewport(ofertasnovedades); prefetch on idle) {
+        <app-ofertas-novedades></app-ofertas-novedades>
+        }
+      </span>
+      <span #suscribete>
+        @defer (on viewport(suscribete); prefetch on idle) {
+        <app-suscribete-section></app-suscribete-section>
+        }
+      </span>
+      <span #productoscarrusel1>
+        @defer (on viewport(productoscarrusel1); prefetch on idle) {
+        <app-productos-1 [categoria]="'NOTEBOOKS'"></app-productos-1>
+        }
+      </span>
+      <span #productoscarrusel2>
+        @defer (on viewport(productoscarrusel2); prefetch on idle) {
+        <app-productos-1 [categoria]="'MONITORES'"></app-productos-1>
+        }
+      </span>
+      <span #productoscarrusel3>
+        @defer (on viewport(productoscarrusel3); prefetch on idle) {
+        <app-productos-1 [categoria]="'IMPRESORAS'"></app-productos-1>
+        }
+      </span>
+      <span #beneficios>
+        @defer (on viewport(beneficios); prefetch on idle) {
+        <app-beneficios-upgrade></app-beneficios-upgrade>
+        }
+      </span>
+    </div>
+
+    <!-- {/* INFORMACION DE CONTACTO */} -->
+
+    <div class="container" style="margin-top: 5rem">
+      <h4 class="text-center fw-bold fs-2" style="color: rgb(15, 21, 90)">
+        INFORMACIÓN PARA EL CLIENTE
+      </h4>
+      <div class="row mt-5">
+        <div class="col-md-3 text-center">
+          <!-- {/* BUTTOM ENVIO A DOMICILO */} -->
+          <i class="bi bi-tools fs-1" style="
+              color: rgba(2, 59, 137, 1);
+              margin-top: 0.7rem;
+              margin-left: 1rem;
+            "></i>
+          <h4>Servicio Técnico Propio</h4>
+          <p>Compra y recibe mantenimiento de por vida</p>
+        </div>
+
+        <div class="col-md-3 text-center">
+          <a [routerLink]="['nuestras-tiendas']" class="text-decoration-none text-dark">
+            <i class="bi bi-box-seam fs-1" style="
+                color: rgba(2, 59, 137, 1);
+                margin-top: 0.7rem;
+                margin-left: 1rem;
+              "></i>
+            <h4>Retiro En Tienda</h4>
+            <p>Compra y recíbelo en nuestras tiendas</p>
+          </a>
+        </div>
+
+        <div class="col-md-3 text-center">
+          <a [routerLink]="['nuestras-tiendas']" class="text-decoration-none text-dark">
+            <i class="bi bi-geo-alt fs-1" style="
+                color: rgba(2, 59, 137, 1);
+                margin-top: 0.7rem;
+                margin-left: 1rem;
+              "></i>
+            <h4>Nuestras Tiendas</h4>
+            <p>Arequipa - Cusco</p>
+          </a>
+        </div>
+
+        <div class="col-md-3 text-center">
+          <!-- {/* BUTTOM ENVIO A DOMICILO */} -->
+          <i class="bi bi-telephone fs-1" style="
+              color: rgba(2, 59, 137, 1);
+              margin-top: 0.7rem;
+              margin-left: 1rem;
+            "></i>
+          <h4>Servicio al Cliente</h4>
+          <p>+51 959 504 118</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- {/* NUESTROS SERVICIOS */} -->
+    <div class="container my-0">
+      <div class="p-5 text-black">
+        <h4 class="text-center fs-2 my-3 fw-bold" style="color: rgb(15, 21, 90)">
+          ¿QUIÉNES SOMOS?
+        </h4>
+        <div class="text-center my-5">
+          <p>
+            Somos una Empresa que ofrece servicios de venta y soporte técnico
+            para computadoras, laptops, impresoras, programas, sistemas de
+            vigilancia y accesorios para equipos. Contamos con productos de alta
+            calidad a precios competitivos y un equipo altamente capacitado para
+            brindar soluciones a problemas técnicos y asesoramiento sobre cómo
+            mejorar la seguridad y privacidad de sus dispositivos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div>
+    <img src="https://imagenes.upgrade.com.pe/Banners/BANNER%201920%20X83.png" class="w-100 d-none d-lg-block fixed-bottom" >
+    </div> -->
+  </div>
+</section>

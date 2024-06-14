@@ -1,0 +1,148 @@
+<section class="container my-5">
+  <section class="">
+
+    <h1>
+      DESCUBRE LOS BENEFICIOS DE COMPRAR EN UPGRADE
+    </h1>
+
+    <div class="contenido">
+      <div class="img-container ">
+        <img
+        [src]="currentImageUrl" alt="Current Image">
+      </div>
+
+      <div class="content-info ">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne" (click)="changeImage('https://imagenes.upgrade.com.pe/Banners/BENEFICIOS-1.webp')">
+                Necesitas Servicio tecnico, contamos con los mejores tecnicos para poder ayudarte.
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <p class="accordion-body" [routerLink]="['servicio-tecnico']">
+                <strong class="text-subrayado">Mas informacion</strong>
+              </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" (click)="changeImage('https://imagenes.upgrade.com.pe/Banners/BENEFICIOS-2.webp')">
+                Como comprar en Upgrade
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body" [routerLink]="['como-comprar']">
+                <strong class="text-subrayado">Mas informacion</strong>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" (click)="changeImage('https://imagenes.upgrade.com.pe/Banners/BENEFICIOS-3.webp')">
+                ¿Que es la certificacion SSL?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                La certificación SSL es un certificado digital que establece una conexión segura entre un servidor web y
+                un navegador web. Esta conexión cifra los datos que se envían entre los dos dispositivos, lo que los
+                hace más seguros y protegidos contra el acceso no autorizado.
+
+                La certificación SSL es importante para proteger los datos confidenciales, como los números de tarjetas
+                de crédito y las contraseñas. También ayuda a mejorar la confianza de los usuarios, ya que les indica
+                que el sitio web es seguro.
+
+                Los sitios web que utilizan la certificación SSL suelen mostrar un candado cerrado en la barra de
+                direcciones del navegador web. Este candado indica que la conexión entre el sitio web y el navegador web
+                es segura.
+
+                En resumen, la certificación SSL es una medida de seguridad importante para proteger los datos
+                confidenciales y mejorar la confianza de los usuarios.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</section>
+
+<!--
+<section class="container my-5">
+  <section class="">
+    <h4 class="text-center fw-bold fs-3 my-5" style="color: rgb(15,21,90)">
+      DESCUBRE LOS BENEFICIOS DE COMPRAR EN UPGRADE
+    </h4>
+    <div class="d-flex w-100 flex-lg-row flex-column justify-content-around gap-4">
+      <div class="card mb-3 bg-upgrade rounded-4" style="max-width: 540px;">
+        <div class="row g-0 m-auto">
+          <div class="col-md-4 col-1 m-auto text-center">
+            <i class="bi bi-whatsapp text-white fs-icons-upgrade "></i>
+          </div>
+          <div class="col-md-8 col-11">
+            <a class="text-decoration-none" href="https://wa.link/hixgbj" target="_blank">
+              <div class="card-body text-white">
+                <h5 class="card-title">¡Contáctanos a nuestro WhatsApp!</h5>
+                <p class="card-text">+51 959 504 152</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 bg-upgrade rounded-4" style="max-width: 540px;">
+        <a [routerLink]="['servicio-tecnico']">
+          <div class="row g-0 m-auto">
+            <div class="col-md-4 col-1 m-auto text-center">
+              <i class="bi bi-gear text-white fs-icons-upgrade"></i>
+            </div>
+            <div class="col-md-8 col-11">
+              <div class="card-body text-white">
+                <h5 class="card-title">¿Necesitas servicio ténico?</h5>
+                <p class="card-text">Conoce todo lo que tenemos para ti</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="card mb-3 bg-upgrade rounded-4" style="max-width: 540px;">
+        <div class="row g-0 m-auto">
+          <div class="col-md-4 col-1 m-auto text-center">
+            <i class="bi bi-cart text-white fs-icons-upgrade"></i>
+          </div>
+          <div class="col-md-8 col-11">
+            <a class="text-decoration-none" [routerLink]="['como-comprar']">
+              <div class="card-body text-white">
+                <h5 class="card-title"> ¿Cómo comprar en Upgrade? </h5>
+                <p class="card-text"> Compra fácil y 100% seguro </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3 bg-upgrade rounded-4" style="max-width: 540px;">
+        <div class="row g-0 m-auto">
+          <div class="col-md-4 col-1 m-auto text-center">
+            <i class="bi bi-shield-check text-white fs-icons-upgrade"></i>
+          </div>
+          <div class="col-md-8 col-11">
+            <div class="card-body text-white">
+              <h5 class="card-title"> Compra Segura! </h5>
+              <p class="card-text"> Esta página cuenta con certificado PCI </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section> -->

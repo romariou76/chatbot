@@ -1,0 +1,8 @@
+.miinput{
+  text-transform: uppercase;
+}
+
+.hr-styled {
+  border: 2px solid rgb(8, 40, 110);
+  margin-top: -1.2rem;
+}

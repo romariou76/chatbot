@@ -1,0 +1,9 @@
+<div class="input-group">
+  <a class="cursor-pointer seleccionable py-1 text-decoration-none form-select w-100" data-bs-toggle="dropdown" aria-expanded="false">
+    <span id="textdepartamento" name="textdepartamento">{{nombre}}</span>
+  </a>
+  <ul class="dropdown-menu w-100">
+      <li *ngFor="let departamento of departamentos"><a class="dropdown-item seleccionable" (click)="clicSelectDepartamento(departamento)" >{{departamento.nombre}}</a>
+      </li>
+  </ul>
+</div>

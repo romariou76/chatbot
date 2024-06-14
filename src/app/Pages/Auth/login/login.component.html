@@ -1,0 +1,44 @@
+<div class="modal fade" id="loginModal" tabIndex="-1" aria-labelledby="loginModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered d-flex justify-content-center">
+    <div class="modal-content w-75">
+      <div class="modal-header">
+        <h5 class="fs-8" id="loginModal">Inicia Sesión en Upgrade</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="loginform" (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <input type="email" class="form-control px-3 fs-8" minlength="1" name="correo" formControlName="correo" placeholder="Ingrese su correo"
+             />
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control px-3 fs-8" minlength="1" name="pass" formControlName="pass" placeholder="Ingrese su contraseña" [(ngModel)]="pass" />
+        </div>
+        @if(boton == 'Iniciando...'){
+        <button  class="btn btn-primary w-100" type="button" disabled>
+          <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+          <span class="fs-8" role="status">Iniciando...</span>
+        </button>
+        }@else if(boton == 'Bienvenido'){
+          <button class="btn btn-success w-100 fs-8">
+            Bienvenido!
+          </button>
+        }@else if(boton == 'Iniciar Sesión'){
+          <button type="submit" [disabled]="!loginform.valid" class="fs-8 btn btn-primary w-100">
+            Iniciar Sesión
+          </button>
+        }
+      </form>
+
+      </div>
+
+      <div class="modal-footer d-flex justify-content-between">
+        <p class="d-block"> ¿Eres nuevo en Upgrade? </p>
+        <a [routerLink]="['register']"
+          data-bs-dismiss="modal" aria-label="Close"
+         type="button" class="d-block text-upgrade fw-semibold"> Registrate </a>
+      </div>
+
+    </div>
+  </div>
+</div>

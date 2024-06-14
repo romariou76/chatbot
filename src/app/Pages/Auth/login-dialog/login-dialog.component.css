@@ -1,0 +1,38 @@
+.btn-button{
+  background-color: #229954;
+  color: white
+}
+.btn-upgradecustom-outline-primary {
+  color: rgb(13, 69, 117);
+  background-color: transparent;
+  border-color: rgb(13, 69, 117);
+}
+
+.btn-upgradecustom-outline-primary:hover {
+  color: #fff;
+  background-color: rgb(13, 69, 117);
+  border-color: rgb(13, 69, 117);
+}
+
+.btn-upgradecustom-outline-primary:focus,
+.btn-upgradecustom-outline-primary.focus {
+  color: #fff;
+  background-color: rgb(13, 69, 117);
+  border-color: rgb(13, 69, 117);
+  box-shadow: 0 0 0 0.25rem rgba(13, 69, 117, 0.5);
+}
+
+
+.btn-upgradecustom-outline-primary:not(:disabled):not(.disabled):active,
+.btn-upgradecustom-outline-primary:not(:disabled):not(.disabled).active,
+.show > .btn-upgradecustom-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: rgb(13, 69, 117);
+  border-color: rgb(13, 69, 117);
+}
+
+.btn-upgradecustom-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-upgradecustom-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-upgradecustom-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 69, 117, 0.5);
+}

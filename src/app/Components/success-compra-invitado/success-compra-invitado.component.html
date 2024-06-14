@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center flex-column" style="overflow: hidden !important;">
+  <div class="row justify-content-center">
+    <iframe src="https://lottie.host/embed/2249d974-29fe-47ee-a8c9-7cab6796800e/y09sBUaokF.json"
+    class="text-center" style="width: 270px; height: 270px; overflow: hidden !important;"></iframe>
+  </div>
+
+  <h4 class="text-center px-3 text-upgrade fw-bold" style="margin-top: -2rem;">
+    ¡Su compra se realizo exitosamente!
+    <br>
+  </h4>
+
+  <p class="fw-bold text-upgrade text-center">
+    Número de Compra: {{ numero || '' }}
+  </p>
+
+  <p class="text-center">
+    <span class="text-danger fw-bold">IMPORTANTE:</span>
+    Imprima el comprobante de pago para visualizar el número de pedido,
+    con el cual podrá consultar el
+    estado de su compra y realizar cualquier gestión posterior.
+  </p>
+
+
+  <p class="text-upgrade fw-bold text-center">¡GRACIAS POR SU COMPRA!</p>
+
+  <div class="d-flex justify-content-center align-items-center gap-2">
+    <app-generate-ov-pdf></app-generate-ov-pdf>
+    <button
+      [routerLink]="['seguimiento-compra']"
+      class="btn btn-success mt-2 mb-3">
+      Ver Seguimiento de mi Compra
+    </button>
+
+  </div>
+</div>

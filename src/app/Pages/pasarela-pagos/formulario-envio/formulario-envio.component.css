@@ -1,0 +1,62 @@
+.h-25{
+ height: 6rem !important;
+}
+
+.fondo{
+  background-color: rgba(20, 68, 115, 0.158);
+}
+
+.input-pasarela:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.input-pasarela{
+  border-radius: 0%;
+  fill: black !important;
+  color: black !important;
+}
+
+/* --------------- */
+.checkbox-style {
+  margin-left: 16px;
+  /* margin-right: 16px; */
+  min-height: 28px;
+}
+.checkbox-style .form-check-input {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.checkbox-style .form-check-input:disabled {
+  cursor: auto;
+}
+.checkbox-style .form-check-input:disabled ~ label {
+  cursor: auto;
+}
+.checkbox-style label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-check-input{
+  width: 25px;
+  height: 25px;
+}
+
+.form-check-input:checked {
+  background-color: #219653;
+  border-color: #219653;
+}
+.checkbox-style.checkbox-warning .form-check-input:checked {
+  background-color: #f7c800;
+  border-color: #f7c800;
+}
+.checkbox-style.checkbox-danger .form-check-input:checked {
+  background-color: #d50100;
+  border-color: #d50100;
+}
+
+
+

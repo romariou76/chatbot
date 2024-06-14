@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playpen+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@100;700&display=swap');
+
+
+
+
+
+
+
+.logo-upgrade {
+  width: 150px;
+  height: 50px;
+}
+
+.contenedor {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  gap: 20px;
+
+  .nav-link {
+    color: black;
+    font-family: Saira;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 5px 20px;
+    border-radius: 50px;
+  }
+
+  .etiqueta-link :hover {
+    background: #144373;
+    color: white;
+    border-radius: 50px;
+
+  }
+
+}
+
+.btn-secundarios {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+  z-index: 99999;
+
+  svg {
+    /* border: 1px solid rgb(0, 0, 0); */
+
+    width: 50px;
+    height: 50px;
+  }
+
+
+
+
+  .wsp-container {
+    display: flex;
+    flex-direction: row;
+
+    .whatsapp-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .btn-icon-close {
+      border: none;
+      background: none;
+      padding: 0;
+
+      .close-icon {
+        width: 16px;
+        top: 0;
+        left: 45px;
+        padding-bottom: 30px;
+        position: absolute;
+
+      }
+    }
+  }
+}
+
+@media (width < 980px) {
+  .btn-secundarios {
+    display: none;
+  }
+
+}
+
+
+.scroll-up-icon {
+
+  bottom: 20px;
+  right: 20px;
+
+
+}
+
+.navbar-ecomerce {
+  z-index: 3;
+}
+
+.black-friday {
+  font-family: Pacifico;
+}
+
+.category-container {
+  position: absolute;
+  width: auto;
+  padding: 0rem 0rem 0rem .5rem;
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.category-container.open {
+  max-height: 1000px;
+  /* Un valor grande para permitir que se expanda completamente */
+  opacity: 1;
+  transform: scaleY(1);
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.category-container.closing {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.list-group-item {
+
+  a{
+    color: black;
+  }
+
+}
+
+.sub-options {
+  position: absolute;
+  top: 0;
+  /* margin-top: .5rem; */
+  left: 100%;
+  /* Mueve la lista al lado derecho del elemento padre */
+  background-color: #fff;
+  width: 150px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: .5rem;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+}
+
+.list-group-itemm:hover .sub-options {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0rem;
+}
+
+.sub-options-2 {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* Mueve la lista al lado derecho del elemento padre */
+  background-color: #fff;
+  width: 150px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
+  display: block;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: 6rem;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+}
+
+.list-group-itemm:hover .sub-options-2 {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 5rem;
+}
+
+
+
+
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.bublealert {
+  margin-left: -1.4rem;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  .logo-upgrade {
+    width: 100px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo-upgrade {
+    width: 80px;
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 357px) {
+  .logo-upgrade {
+    width: 80px;
+    height: auto;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.input-navbar-search {
+  width: 47%;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .input-navbar-search {
+    width: 20rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .input-navbar-search {
+    width: 20rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .input-navbar-search {
+    width: 25rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .input-navbar-search {
+    width: 20rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .input-navbar-search {
+    width: 16rem;
+    height: auto;
+    transition: ease-in-out 1s;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .input-navbar-search {
+    width: 14rem;
+    height: auto;
+  }
+}
+
+
+
+@media screen and (max-width: 390px) {
+  .input-navbar-search {
+    width: 5rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .input-navbar-search {
+    width: 10rem;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .input-navbar-search {
+    width: 9rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .input-navbar-search {
+    width: 7rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .input-navbar-search {
+    width: 5rem;
+  }
+}
+
+
+/* Agrega una posición relativa al contenedor del menú desplegable */
+.dropdown {
+  position: relative;
+}
+
+/* Cambia la posición a absoluta y ajusta la apariencia del menú */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  /* Ubica el menú debajo del enlace "Categorias" */
+  left: 0;
+  z-index: 1;
+  /* Asegura que el menú aparezca por encima del contenido */
+  max-height: 0;
+  overflow: hidden;
+  background-color: white;
+  /* Agrega un fondo blanco al menú */
+  /* transition: max-height 0.3s ease-in-out; */
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+}
+
+/* Asegúrate de que el menú esté visible cuando está abierto */
+.dropdown-content.show {
+  max-height: 500px;
+  border-top: none;
+  opacity: 1;
+  pointer-events: auto;
+  padding: 1rem 1rem;
+}
+
+.categorias-content {
+  height: auto;
+  width: 12rem;
+  padding: 0rem 1rem;
+  border-radius: 1rem;
+  margin-top: .7rem;
+}
+
+/* Anula los estilos de enfoque en el botón del acordeón */
+.accordion-button button {
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+.accordion-button:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #00000000;
+}
+
+/* Cambia el color del botón del acordeón cuando el cuerpo se abre */
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+  /* Hace que el botón sea invisible (sin color) */
+}
+
+/* Cambia el color del botón del acordeón cuando el cuerpo se cierra */
+.accordion-button.collapsed {
+  background-color: #00000000;
+  /* Establece el color deseado cuando el botón está cerrado */
+}
+
+
+.navbar-mobile {
+  width: 100vw;
+  height: 70px;
+  padding: 10px;
+  padding-inline: 25px;
+  justify-content: center;
+
+  .lista-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+    padding-top: 10px;
+    width: 100%;
+    gap: 45px;
+
+    .button-user{
+      border: none;
+      background: none;
+    }
+
+  }
+
+  /* gap: 20px; */
+
+  /* padding-left: 30px; */
+  /* padding-right: 70px; */
+}
+
+@media (width > 990px) {
+  .navbar-mobile {
+    display: none;
+  }
+}

@@ -1,0 +1,39 @@
+<section class="p-3 bg-light rounded-3">
+  <div class="d-flex justify-content-between fw-500">
+    <span class="fw-bold">Total</span>
+    <span class="fw-600" > {{precioTotalCarro() | currency : "S/ " }}</span>
+  </div>
+  <hr>
+  <div>
+    <!-- <span class="fs-09">El costo de envio sera calculado despues de seleccionar el tipo de envio</span> -->
+  </div>
+
+  <div>
+    <h6 class="mt-3 fw-600">Resumen de la Orden</h6>
+    @for (item of this.cart.carro(); track $index) {
+    <div class="d-flex align-items-center">
+      <img [src]="'https://imagenes.upgrade.com.pe/ImagenesEcommerce/' +
+        (item.producto.urlimagen || '')" class="me-3" style="width: 90px; height: auto" alt="productoimagen" />
+      <div class="col-8 w-50 fs-09">
+        <span>
+          {{
+          item.producto.nombreEcommerce.charAt(0).toUpperCase() +
+          item.producto.nombreEcommerce.slice(1).toLowerCase()
+          }}
+        </span>
+        <span class="d-block"> Cantidad: {{ item.cantidad }} </span>
+      </div>
+      <div class="ms-auto fs-09"> {{ precioTotalUnidCarrito(item) | currency : "S/ " }}</div>
+    </div>
+    }@empty {
+    <div class="py-6">
+      <p class="text-center">Vacio</p>
+    </div>
+    }
+  </div>
+  <hr>
+  <div class="d-flex mt-3 justify-content-between fs-09">
+    <span>Recojo en Tienda</span>
+    <span>Gratis</span>
+  </div>
+</section>

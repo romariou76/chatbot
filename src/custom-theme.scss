@@ -1,0 +1,68 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+$my-color-upgrade: (
+  50:#e3f0f6,
+  100:#bbdaeb,
+  200:  #93c4de,
+  300:#6fadd0,
+  400: #559cc8,
+  500: #3f8dc1,
+  600: #3580b5,
+  700: #2a6fa4,
+  800: #225f92,
+  900:#144473,
+
+  contrast:(
+    50:#144473,
+  100:#225f92,
+  200:  #2a6fa4,
+  300:#3580b5,
+  400: #3f8dc1,
+  500: #559cc8,
+  600: #6fadd0,
+  700: #93c4de,
+  800: #bbdaeb,
+  900:#e3f0f6,
+  )
+
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$EcommerceUpgrade-primary: mat.define-palette($my-color-upgrade, 900);
+$EcommerceUpgrade-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$EcommerceUpgrade-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$EcommerceUpgrade-theme: mat.define-light-theme((
+  color: (
+    primary: $EcommerceUpgrade-primary,
+    accent: $EcommerceUpgrade-accent,
+    warn: $EcommerceUpgrade-warn,
+  )
+));
+
+.mdc-dialog__surface{
+  border-radius: 1rem !important;
+}
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($EcommerceUpgrade-theme);
+

@@ -1,0 +1,96 @@
+<!-- <h6 class="form-label mb-3 mx-2">¿CÓMO PREFIERES PAGAR?</h6> -->
+
+<section class="my-0">
+  <div class="border-0 card m-0 mb-3" style="padding-right: 1rem">
+    <h5 class="form-label fw-bold text-upgrade" style="margin-bottom: 0rem">
+      TARJETA DE CRÉDITO O DÉBITO
+    </h5>
+    <section>
+      <div class="mb-2 d-flex gap-2"></div>
+       <form [formGroup]="tokentarjeta" (ngSubmit)="RealizarPago()">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="inputPassword5" class="form-label">
+                Número de tarjeta
+              </label>
+              <input
+                  type="text"
+                  class="form-control input-pasarela border-0 border-bottom mb-3"
+                  minlength="13" maxlength="16"
+                  formControlName="tarjeta"
+                  name="tarjeta"
+                  placeholder="0000 0000 0000 0000"
+
+              >
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-6 col-6">
+                    <label for="inputPassword5" class="form-label">
+                      Mes de Expiración
+                    </label>
+                    <input
+                      type="text"
+                      minlength="1" maxlength="2"
+                      class="form-control input-pasarela border-0 border-bottom mb-3"
+                      placeholder="MM"
+                      formControlName="month"
+                      name="month"
+                    >
+                </div>
+                <div class="col-md-6 col-6">
+                  <label for="inputPassword5" class="form-label">
+                    Año de Expiración
+                  </label>
+                  <input
+                    type="text"
+                    minlength="4" maxlength="4"
+                    class="form-control input-pasarela border-0 border-bottom mb-3"
+                    placeholder="AAAA"
+                    formControlName="year"
+                    name="year"
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword5" class="form-label">
+                CVV
+              </label>
+              <input
+                type="text"
+                minlength="3" maxlength="3"
+                class="form-control input-pasarela border-0 border-bottom mb-3"
+                placeholder="cvv"
+                formControlName="cvv"
+                name="cvv"
+              >
+            </div>
+
+            <div class="col-md-12 mt-4">
+              <!-- @if(this.usuarioservice.tokenexiste() == true){ -->
+                <button type='submit' class="btn btn-primary w-100 fw-bold text-uppercase"
+                [disabled]="!tokentarjeta.valid || !botonSeguridad">Realizar Pago
+                <i class="ms-2 bi bi-credit-card-fill"></i>
+              </button>
+              <!-- } -->
+            </div>
+          </div>
+        </form>
+
+    </section>
+    <!-- <app-tarjeta-credito (event)="RealizarCompra($event)"></app-tarjeta-credito> -->
+  </div>
+
+
+        <div class="bg-light card m-0 py-3 mt-2">
+          <h6 class="fw-bold ms-3">¡INFORMACIÓN IMPORTANTE!</h6>
+          <div class="d-flex">
+
+            <div class="ms-3 p-0">
+              Una vez realizada el pago, procederemos a verificar la transferencia correspondiente, lo cual podría demorar hasta 3 días. Posteriormente, iniciaremos el proceso de entrega de tu pedido.
+          </div>
+          </div>
+
+        </div>
+</section>

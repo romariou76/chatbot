@@ -1,0 +1,109 @@
+<section class="mt-3 mt-lg-5">
+  <div class="container">
+    <div class="accordion" id="accordionExample">
+      <div class="steps">
+        <progress class="progress-bar" id="progress" [value]="valorBarraProgreso" max="100"></progress>
+        <div class="step-item">
+          <button  [ngClass]="{'color': selectedTab() === 1 || 2 || 3}" class="step-button text-center text-white rounded-circle border" type="button">
+            1
+          </button>
+          <div class="step-title">
+            Carro
+          </div>
+        </div>
+        <div class="step-item">
+          <button  [ngClass]="{'color': selectedTab() !== 1}" class="step-button text-center text-white rounded-circle border" type="button">
+            2
+          </button>
+          <div class="step-title">
+            Envio
+          </div>
+        </div>
+        <div class="step-item">
+          <button  [ngClass]="{'color': selectedTab() === 3}" class="step-button text-center text-white rounded-circle border" type="button">
+            3
+          </button>
+          <div class="step-title">
+            Pago
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div >
+  <div class="container container-pasarelapagos">
+    <div class="tabs">
+      <div class="tab-content">
+        <div class="tab-pane fade show active"  id="carrito" role="tabpanel">
+          <div class="d-flex justify-content-between">
+            <h5 class="fw-bold mb-4 text-black"> {{title()}} </h5>
+          </div>
+          <div class="row m-0 p-0">
+            <div class="col-lg-8 m-0 pr-3">
+              @if(selectedTab() === 1){
+              <app-informacion-carrito></app-informacion-carrito>
+              }@else if(selectedTab() === 2){
+                <app-formulario-envio
+                  (event2)="DatosDeObservaciones($event)"
+                  (event)="DatosDeUsuario($event)"
+                  (enviarDepartamento)="getDepartamento($event)"
+                  (enviarProvincia)="getProvincia($event)"
+                  (enviarDistrito)="getDistrito($event)"
+                  (enviarRespuesta)="seleccionarPasoCompra($event)"
+                ></app-formulario-envio>
+              }@else if(selectedTab() === 3){
+                <app-formulario-pago (event)="RealizarCompra($event)" ></app-formulario-pago>
+              }
+              <app-formas-pago></app-formas-pago>
+            </div>
+            <div class="col-lg-4">
+              @if(selectedTab() === 1){
+                <app-resumen-monto-total></app-resumen-monto-total>
+              }@else {
+                <app-resumen-carrito ></app-resumen-carrito>
+              }
+            </div>
+
+          </div>
+            <div class="py-3 d-flex justify-content-between">
+              <h6>
+                <i class="bi bi-arrow-left me-2 text-dark"></i>
+                @if(selectedTab() === 1){
+                <a [routerLink]="['/tienda']" class="text-decoration-none" style="color: #0F152F">
+                  Seguir comprando
+                </a>
+                }@else {
+                  <a class="text-decoration-none cursor-pointer border-tab"
+                  (click)="seleccionarPasoCompra(false)" data-toggle="tab" role="tab" style="color: #0F152F">
+                  Atras
+                </a>
+                }
+              </h6>
+
+              @if(!usuarioservice.tokenexiste() && this.selectedTab() != 3){
+                <a class="boton-siguiente text-white btn boton-comprar cursor-pointer border-tab"
+                (click)="Logeate()" data-toggle="tab" role="tab" style="color: #0F152F">
+                Siguiente
+                <i class="bi bi-arrow-right me-2 text-white"></i>
+                </a>
+              } @else {
+                @if(this.cart.carro().length !== 0
+                && this.selectedTab() != 3
+                && this.selectedTab() != 2
+                ){
+                    <a class="boton-siguiente text-white btn boton-comprar cursor-pointer border-tab"
+                      (click)="seleccionarPasoCompra(true)"
+                      data-toggle="tab" role="tab" style="color: #0F152F">
+                        Siguiente
+                      <i class="bi bi-arrow-right me-2 text-white"></i>
+                    </a>
+                }
+              }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

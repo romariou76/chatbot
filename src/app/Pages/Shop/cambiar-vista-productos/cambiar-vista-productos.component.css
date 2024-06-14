@@ -1,0 +1,9 @@
+.margin-price-select{
+  margin-top: -1.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  .margin-price-select {
+    margin: 3rem 0rem 0rem 0rem;
+  }
+}

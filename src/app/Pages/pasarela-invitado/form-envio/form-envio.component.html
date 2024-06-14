@@ -1,0 +1,140 @@
+<section class="my-0">
+  <div class="d-flex align-items-center justify-content-between gap-3 mb-3">
+    <a [ngClass]="{'fondo': selectedTabTienda() == 1}" (click)="elegirTipoEntrega(false)"
+      class="px-3 py-2 border rounded-3 cursor-pointer w-100">
+      <i class="bi bi-shop text-upgrade fs-3 me-2"></i> <span class="fw-bold text-dark">Recojo en Tienda</span>
+    </a>
+    <a [ngClass]="{'fondo': selectedTabTienda() == 2}" class="px-3 py-2 border  rounded-3 cursor-pointer w-100"
+      (click)="elegirTipoEntrega(true)">
+      <i class="bi bi-send-check-fill text-success fs-3 me-2"></i> <span class="fw-bold text-dark">Envio a
+        Domicilio</span>
+    </a>
+  </div>
+
+  @if(selectedTabTienda() === 1){
+  <div>
+
+    <span class="d-block mb-3 fw-bold">
+      Elija la tienda de entrega
+    </span>
+
+    <div>
+      <div class="d-flex justify-content-between align-items-center border mb-3 rounded-3">
+        <div class="d-flex align-items-center px-3">
+          <input class="form-check-input me-3" type="radio" value="" id="quinonesCheckbox"
+            [checked]="tiendaQuinonesSeleccionada" (change)="selectShop(1)">
+          <label class="form-check-label" for="flexCheckDefault">
+            Quiñones - Yanahuara
+          </label>
+        </div>
+        <iframe class="h-25 d-inline-block"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15310.137455974658!2d-71.56419046044917!3d-16.397665600000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a5da494d5ad%3A0x3d2b3375a8b2b01a!2sGrupo%20UPGRADE!5e0!3m2!1ses-419!2spe!4v1680041534076!5m2!1ses-419!2spe"
+          style=" border:0; padding: 0" allowFullScreen="" loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center border rounded-3">
+        <div class="d-flex align-items-center px-3">
+          <input class="form-check-input me-3" type="radio" value="" id="riveroCheckbox"
+            [checked]="tiendaRiveroSeleccionada" (change)="selectShop(2)">
+          <label class="form-check-label" for="flexCheckDefault">
+            Rivero - Arequipa
+          </label>
+        </div>
+        <iframe class="h-25 d-inline-block"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d478.4459156120234!2d-71.53270679670321!3d-16.395988821576992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424a510c6cdbc1%3A0xfaeb96eab705cfd2!2sUpgrade!5e0!3m2!1ses-419!2spe!4v1680041265652!5m2!1ses-419!2spe"
+          style="border:0; padding: 0" allowFullScreen="" loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+    </div>
+
+    <div class="my-3">
+      <strong>¡Estás a un Paso de Completar tu Compra!</strong>
+        Una vez finalices tu pago, nos encargaremos de tener todo listo para ti.
+
+        Al llegar, solo presenta el número del pedido para un servicio rápido y eficiente.
+        ¡Gracias por elegir al GRUPO UPGRADE!
+    </div>
+
+    <button class="btn btn-upgrade fw-bold text-uppercase boton-envio w-100 py-2 text-white cursor-pointer"
+    (click)="this.enviarRespuesta.emit(true)"
+    >
+      Siguiente
+    <i class="bi bi-arrow-right me-2 text-white m-auto"></i>
+    </button>
+
+
+  </div>
+
+  }@else {
+  <div>
+    <h5 class="form-label my-3">Dirección de Envío</h5>
+
+    <div class="row">
+      <div class="col-6 col-lg-6 mb-3">
+        <label class="form-label">
+          Direccion
+        </label>
+        <input type="text" [(ngModel)]="direccion" class="form-control input-pasarela border-0 border-bottom" required="" />
+      </div>
+
+      <div class="col-6 col-lg-6 mb-3">
+        <label class="form-label"> Departamento </label>
+        <div class="input-group">
+          <a class="cursor-pointer seleccionable py-1 text-decoration-none form-select w-100" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="textdepartamento" name="textdepartamento">{{nombreDep}}</span>
+          </a>
+          <ul class="dropdown-menu w-100">
+              <li *ngFor="let dep of departametos"><a class="dropdown-item seleccionable"
+                (click)="seleccionarDepartamento(dep)"  >{{dep.nombre}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-6 mb-3">
+        <label class="form-label"> Provincia </label>
+        <div class="input-group">
+          <a class="cursor-pointer seleccionable py-1 text-decoration-none form-select w-100" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="textdepartamento" name="textdepartamento">{{nombreProv}}</span>
+          </a>
+          <ul class="dropdown-menu w-100">
+              <li *ngFor="let prov of provincias"><a class="dropdown-item seleccionable"
+                (click)="seleccionarProvincia(prov)">{{prov.nombre}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-6 mb-3">
+        <label class="form-label"> Distrito </label>
+        <div class="input-group">
+          <a class="cursor-pointer seleccionable text-decoration-none form-select w-100" data-bs-toggle="dropdown" aria-expanded="false"><span id="textdistrito" name="textdistrito">{{nombreDis}}</span></a>
+          <ul class="dropdown-menu w-100">
+              <li *ngFor="let distrito of distritos"><a class="dropdown-item seleccionable"
+                 (click)="seleccionarDistrito(distrito)" >{{distrito.nombre}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-3">
+      <p>¡Casi Listo para el Envío a tu Provincia o Departamento con Grupo Upgrade!</p>
+      <p>Tu pedido está en camino de ser procesado. En Grupo Upgrade, queremos asegurarnos de que tu experiencia sea fluida y satisfactoria. Ten en cuenta que el envío a tu provincia o departamento está sujeto a la disponibilidad de nuestros couriers asociados. Nos pondremos en contacto contigo para coordinar el mejor método de envío y seleccionar el courier de tu preferencia.</p>
+      <p>Recuerda que el costo de envío será cubierto por ti.
+        Nuestro equipo está listo para ofrecerte todas las opciones posibles y ayudarte en cada paso del proceso.</p>
+      <!-- <p>¡Gracias por elegir Grupo Upgrade! Estamos comprometidos a brindarte la mejor experiencia de compra.</p> -->
+    </div>
+
+    <button class="btn btn-upgrade fw-bold text-uppercase w-100 boton-envio py-2 text-white cursor-pointer"
+    (click)="siguientePasoValidarEnvio()"
+    >
+      SIGUIENTE
+      <i class="bi bi-arrow-right me-2 text-white m-auto"></i>
+    </button>
+
+  </div>
+  }
+</section>
